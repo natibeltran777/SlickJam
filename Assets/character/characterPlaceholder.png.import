@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cstwsi1kj7sy5"
-path="res://.godot/imported/T_RoadDark01.png-9c81c54a77681d53b021037d0b554889.ctex"
+uid="uid://lavpkun6e11u"
+path="res://.godot/imported/characterPlaceholder.png-db98bea9498ac4e509b83f004c33e518.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Textures/T_RoadDark01.png"
-dest_files=["res://.godot/imported/T_RoadDark01.png-9c81c54a77681d53b021037d0b554889.ctex"]
+source_file="res://Assets/character/characterPlaceholder.png"
+dest_files=["res://.godot/imported/characterPlaceholder.png-db98bea9498ac4e509b83f004c33e518.ctex"]
 
 [params]
 
