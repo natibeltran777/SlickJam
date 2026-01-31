@@ -59,14 +59,17 @@ func _physics_process(delta: float) -> void:
 	character_model.rotation.x = steer_input * 0.2
 		
 	if input_manager._is_drift_pressed():
-		#DriftCamera.set_priority(1)
-		#OnRailsCamera.set_priority(0)
+		OnRailsCamera.set_tween_duration(.3)
+		DriftCamera.set_priority(1)
+		DriftCamera.set_tween_duration(.5)
+		OnRailsCamera.set_priority(0)
 		var drift_direction = global_basis.z
 		rotation.y = rotation.y + (steer_input*delta*DRIFTING_RATE)
 		velocity = drift_direction * DRIFTSPEED	
 	elif input_manager._is_drift_released():
-		#DriftCamera.set_priority(0)
-		#OnRailsCamera.set_priority(1)
+		OnRailsCamera.set_tween_duration(.5)
+		DriftCamera.set_priority(0)
+		OnRailsCamera.set_priority(1)
 		SPEED = DRIFT_BOOST_SPEED
 	else:
 		var horizontal_movement = steer_input * global_basis.x
