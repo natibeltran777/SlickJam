@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://c1uoe671hwo5v"]
 
 [ext_resource type="Texture2D" uid="uid://v3j0nldjnuws" path="res://addons/OnlineResources/1000_F_495512965_bCJUANoCWIyK0RbnNcinDIzUlCKDaDB9.jpg" id="1_7fp0v"]
-[ext_resource type="Script" uid="uid://drtemdays46al" path="res://LevelScenes/MainCharacter.gd" id="1_w3y0u"]
-[ext_resource type="Script" uid="uid://58arpvd5qve0" path="res://Managers/input_manager.gd" id="2_u32hd"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_ar5pk"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_l1co7"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_l1co7"]
+[ext_resource type="PackedScene" uid="uid://bvnxpuwjyl1k4" path="res://Character/Scenes/main_character.tscn" id="2_u32hd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bvtps"]
 albedo_texture = ExtResource("1_7fp0v")
@@ -24,17 +20,6 @@ material = SubResource("StandardMaterial3D_5bd8a")
 [sub_resource type="BoxShape3D" id="BoxShape3D_u32hd"]
 size = Vector3(1.9864502, 0.001, 1.9697266)
 
-[sub_resource type="Resource" id="Resource_7fp0v"]
-script = ExtResource("4_l1co7")
-
-[sub_resource type="BoxMesh" id="BoxMesh_cxpwc"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ar5pk"]
-size = Vector3(0.96448517, 1.0966797, 2.571045)
-
-[sub_resource type="Resource" id="Resource_bvtps"]
-script = ExtResource("4_l1co7")
-
 [node name="Node3D" type="Node3D" unique_id=1487180672]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1123086357]
@@ -48,93 +33,8 @@ mesh = SubResource("PlaneMesh_w3y0u")
 transform = Transform3D(1.0071412, 0, 0, 0, 1.0071412, 0, 0, 0, 1.0071412, 6.1026953e-05, 0.5030671, 0.008559289)
 shape = SubResource("BoxShape3D_u32hd")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1254282930 node_paths=PackedStringArray("input_manager", "character_model", "DriftCamera", "OnRailsCamera")]
+[node name="MainCharacter" parent="." unique_id=2066787586 instance=ExtResource("2_u32hd")]
 transform = Transform3D(-0.6427876, 0, -0.76604444, 0, 1, 0, 0.7660444, 0, -0.64278764, 0, 3.9135592, 0)
-script = ExtResource("1_w3y0u")
-input_manager = NodePath("InputManager")
-character_model = NodePath("MeshInstance3D")
-DriftCamera = NodePath("DynamicDriftCamera_right")
-OnRailsCamera = NodePath("Node3D/OnRailsCamera")
-SPEED = 13.055
-DRIFTSPEED = 5.0
-DRIFT_BOOST_SPEED = 30.0
-JUMP_VELOCITY = 7.115
-MAX_TURNING_MAGNITUDE = 8.975
-DRIFTING_RATE = 1.0
-
-[node name="Node3D" type="Node3D" parent="CharacterBody3D" unique_id=420032664]
-
-[node name="OnRailsCamera" type="Node3D" parent="CharacterBody3D/Node3D" unique_id=1363804036 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(0.69593596, -0.39003432, 0.60294783, 0, 0.83963895, 0.5431448, -0.7181036, -0.3779941, 0.584335, 3.555, 6.713559, 3.05)
-top_level = true
-script = ExtResource("3_ar5pk")
-priority = 1
-follow_mode = 2
-follow_target = NodePath("../..")
-look_at_target = NodePath("../..")
-tween_resource = SubResource("Resource_7fp0v")
-follow_offset = Vector3(3.555, 2.8, 3.05)
-follow_distance = 4.44
-vertical_rotation_offset = 0.08726646259971647
-horizontal_rotation_offset = -3.1311206780778273
-spring_length = 4.44
-look_at_offset = Vector3(-16.775, -3.05, -13.16)
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1745072387]
-transform = Transform3D(1.9106855e-15, 1.1329302e-07, 1, 1, -1.1329302e-07, 0, 4.371139e-08, 2.5918422, -4.371139e-08, 0, 0.47921103, 0)
-mesh = SubResource("BoxMesh_cxpwc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=674006893]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045513153, 0.5092773, 0.037963867)
-shape = SubResource("BoxShape3D_ar5pk")
-
-[node name="InputManager" type="Node3D" parent="CharacterBody3D" unique_id=704862796]
-script = ExtResource("2_u32hd")
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=200924191]
-physics_interpolation_mode = 1
-transform = Transform3D(0.69593596, -0.39003432, 0.60294783, 0, 0.83963895, 0.5431448, -0.7181036, -0.3779941, 0.584335, 3.555, 6.713559, 3.05)
-top_level = true
-
-[node name="PhantomCameraHost" type="Node" parent="CharacterBody3D/Camera3D" unique_id=758683793]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("3_l1co7")
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="DynamicDriftCamera_right" type="Node3D" parent="CharacterBody3D" unique_id=48766433 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(-0.99932843, 0.025037736, -0.02675587, 0, 0.73016226, 0.6832738, 0.036643773, 0.68281484, -0.72967184, -0.5198252, 2.410302, -2.826167)
-script = ExtResource("3_ar5pk")
-follow_mode = 6
-follow_target = NodePath("..")
-tween_resource = SubResource("Resource_bvtps")
-follow_offset = Vector3(1.39, 1.095, 0.555)
-follow_distance = 1.925
-vertical_rotation_offset = 0.7522369076095564
-horizontal_rotation_offset = 3.104940739297912
-spring_length = 1.925
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-align_rotation_with_view = Callable()
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="DynamicDriftCamera_left" type="Node3D" parent="CharacterBody3D" unique_id=377479590 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(0.29570812, -0.4790823, 0.8264605, -2.9802322e-08, 0.86515146, 0.5015107, -0.9552783, -0.14830077, 0.25583223, 1.9271249, 1.7315109, 1.629782)
-visible = false
-script = ExtResource("3_ar5pk")
-follow_mode = 6
-follow_target = NodePath("..")
-tween_resource = SubResource("Resource_bvtps")
-follow_offset = Vector3(-1.76, 1.23, -0.04)
-vertical_rotation_offset = 0.5253441048502936
-horizontal_rotation_offset = -1.2705996954518721
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-align_rotation_with_view = Callable()
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=668068407]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.437344, -1.0194702)
