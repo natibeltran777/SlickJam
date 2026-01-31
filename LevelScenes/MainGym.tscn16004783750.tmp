@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://c1uoe671hwo5v"]
+
+[ext_resource type="Texture2D" uid="uid://v3j0nldjnuws" path="res://addons/OnlineResources/1000_F_495512965_bCJUANoCWIyK0RbnNcinDIzUlCKDaDB9.jpg" id="1_7fp0v"]
+[ext_resource type="Script" uid="uid://drtemdays46al" path="res://LevelScenes/MainCharacter.gd" id="1_w3y0u"]
+[ext_resource type="Script" uid="uid://58arpvd5qve0" path="res://Managers/input_manager.gd" id="2_u32hd"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_ar5pk"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_l1co7"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_l1co7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bvtps"]
+albedo_texture = ExtResource("1_7fp0v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bd8a"]
+albedo_color = Color(0.29219002, 0.29219005, 0.29219002, 1)
+albedo_texture = ExtResource("1_7fp0v")
+uv1_scale = Vector3(0.445, 0.445, 0.445)
+uv1_offset = Vector3(-0.22, 0, 0)
+uv2_scale = Vector3(0.69, 0.69, 0.69)
+uv2_offset = Vector3(-0.2, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w3y0u"]
+material = SubResource("StandardMaterial3D_5bd8a")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u32hd"]
+size = Vector3(1.9864502, 0.001, 1.9697266)
+
+[sub_resource type="Resource" id="Resource_7fp0v"]
+script = ExtResource("4_l1co7")
+duration = 0.03
+
+[sub_resource type="BoxMesh" id="BoxMesh_cxpwc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ar5pk"]
+size = Vector3(0.96448517, 1.0966797, 2.571045)
+
+[sub_resource type="Resource" id="Resource_bvtps"]
+script = ExtResource("4_l1co7")
+
+[node name="Node3D" type="Node3D" unique_id=1487180672]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1123086357]
+transform = Transform3D(167.35306, 0, 0, 0, 1, 0, 0, 0, 95.670395, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_bvtps")
+mesh = SubResource("PlaneMesh_w3y0u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1903940451]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=853897290]
+transform = Transform3D(1.0071412, 0, 0, 0, 1.0071412, 0, 0, 0, 1.0071412, 6.1026953e-05, 0.5030671, 0.008559289)
+shape = SubResource("BoxShape3D_u32hd")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1254282930 node_paths=PackedStringArray("input_manager", "character_model")]
+transform = Transform3D(-0.6427876, 0, -0.76604444, 0, 1, 0, 0.7660444, 0, -0.64278764, 0, 3.9135592, 0)
+script = ExtResource("1_w3y0u")
+input_manager = NodePath("InputManager")
+character_model = NodePath("MeshInstance3D")
+SPEED = 13.055
+JUMP_VELOCITY = 7.115
+MAX_TURNING_MAGNITUDE = 8.975
+TURNING_RATE = 1.7149999999999999
+
+[node name="OnRailsCamera" type="Node3D" parent="CharacterBody3D" unique_id=1363804036 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(0.6507743, -0.066174835, 0.75638187, 3.7252903e-09, 0.9961947, 0.087155744, -0.75927114, -0.056718722, 0.64829797, 7.0083356, 6.985531, 5.928443)
+top_level = true
+script = ExtResource("3_ar5pk")
+priority_override = true
+priority = 1
+follow_mode = 5
+follow_target = NodePath("..")
+tween_resource = SubResource("Resource_7fp0v")
+follow_offset = Vector3(3.65, 2.685, 3.05)
+follow_damping = true
+follow_distance = 4.44
+vertical_rotation_offset = 0.08726646259971647
+horizontal_rotation_offset = -3.1311206780778273
+spring_length = 4.44
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1745072387]
+transform = Transform3D(1.9106855e-15, 1.1329302e-07, 1, 1, -1.1329302e-07, 0, 4.371139e-08, 2.5918422, -4.371139e-08, 0, 0.47921103, 0)
+mesh = SubResource("BoxMesh_cxpwc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=674006893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045513153, 0.5092773, 0.037963867)
+shape = SubResource("BoxShape3D_ar5pk")
+
+[node name="InputManager" type="Node3D" parent="CharacterBody3D" unique_id=704862796]
+script = ExtResource("2_u32hd")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=200924191]
+physics_interpolation_mode = 1
+transform = Transform3D(0.6507743, -0.066174835, 0.75638187, 3.7252903e-09, 0.9961947, 0.087155744, -0.75927114, -0.056718722, 0.64829797, 7.0083356, 6.985531, 5.928443)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="CharacterBody3D/Camera3D" unique_id=758683793]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_l1co7")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="DynamicDriftCamera" type="Node3D" parent="CharacterBody3D" unique_id=48766433]
+script = ExtResource("3_ar5pk")
+tween_resource = SubResource("Resource_bvtps")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=668068407]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.437344, -1.0194702)
+light_color = Color(0.9999998, 0.8778693, 0.93196404, 1)
+light_energy = 0.117
+light_indirect_energy = 1.221
+light_volumetric_fog_energy = 0.945
+light_size = 0.272
+omni_range = 2452.197
+omni_attenuation = -0.629
