@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_4j1o4"]
 [ext_resource type="Script" uid="uid://58arpvd5qve0" path="res://Managers/input_manager.gd" id="4_mfpx1"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_xv4or"]
+[ext_resource type="Texture2D" uid="uid://bqi60knl72pun" path="res://Assets/character/character_sprite.png" id="6_3n4cc"]
 
 [sub_resource type="Resource" id="Resource_7fp0v"]
 script = ExtResource("3_4j1o4")
@@ -32,26 +33,31 @@ MAX_TURNING_MAGNITUDE = 8.975
 DRIFTING_RATE = 1.0
 
 [node name="Node3D" type="Node3D" parent="." unique_id=2143159797]
+transform = Transform3D(0.98537225, 0, 0.17041588, 0, 1, 0, -0.17041588, 0, 0.98537225, 0.17496298, 1.304668, -3.0200412)
 
-[node name="OnRailsCamera" type="Node3D" parent="Node3D" unique_id=905341654 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(0.69593596, -0.39003432, 0.60294783, 0, 0.83963895, 0.5431448, -0.7181036, -0.3779941, 0.584335, 3.555, 6.713559, 3.05)
-top_level = true
+[node name="OnRailsCamera" type="Node3D" parent="Node3D" unique_id=905341654 node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(0.7703221, -0.14135805, 0.6217889, 0, 0.9751184, 0.22168425, -0.6376547, -0.17076832, 0.75115526, 0, 0, 0)
 script = ExtResource("2_3n4cc")
 priority = 1
-follow_mode = 2
-follow_target = NodePath("../..")
+look_at_mode = 2
+look_at_target = NodePath("../../Node3D2")
 tween_resource = SubResource("Resource_7fp0v")
-follow_offset = Vector3(3.555, 2.8, 3.05)
 follow_distance = 4.44
 vertical_rotation_offset = 0.08726646259971647
 horizontal_rotation_offset = -3.1311206780778273
 spring_length = 4.44
-look_at_offset = Vector3(-16.775, -3.05, -13.16)
+look_at_offset = Vector3(-7.84, -2.28, -9.65)
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=714472358]
 transform = Transform3D(1.9106855e-15, 1.1329302e-07, 1, 1, -1.1329302e-07, 0, 4.371139e-08, 2.5918422, -4.371139e-08, 0, 0.47921103, 0)
+visible = false
 mesh = SubResource("BoxMesh_cxpwc")
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=12305403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3959732, -1.4323463)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=866772795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045513153, 0.5092773, 0.037963867)
@@ -62,7 +68,7 @@ script = ExtResource("4_mfpx1")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1609799754]
 physics_interpolation_mode = 1
-transform = Transform3D(0.69593596, -0.39003432, 0.60294783, 0, 0.83963895, 0.5431448, -0.7181036, -0.3779941, 0.584335, 3.555, 6.713559, 3.05)
+transform = Transform3D(0.7703222, -0.14135806, 0.62178904, 0, 0.9751185, 0.22168429, -0.63765484, -0.17076834, 0.7511554, 2.201022, 1.304668, 2.0752747)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=238499936]
@@ -82,10 +88,13 @@ follow_distance = 1.925
 vertical_rotation_offset = 0.7522369076095564
 horizontal_rotation_offset = 3.104940739297912
 spring_length = 1.925
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="DynamicDriftCamera_left" type="Node3D" parent="." unique_id=233737687 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(0.29570812, -0.4790823, 0.8264605, -2.9802322e-08, 0.86515146, 0.5015107, -0.9552783, -0.14830077, 0.25583223, 1.9271249, 1.7315109, 1.629782)
+transform = Transform3D(0.29570818, -0.4790824, 0.82646036, 1.4901161e-08, 0.8651514, 0.5015108, -0.9552783, -0.14830081, 0.25583237, 1.9271249, 1.7315108, 1.629782)
 visible = false
 script = ExtResource("2_3n4cc")
 follow_mode = 6
@@ -94,4 +103,13 @@ tween_resource = SubResource("Resource_bvtps")
 follow_offset = Vector3(-1.76, 1.23, -0.04)
 vertical_rotation_offset = 0.5253441048502936
 horizontal_rotation_offset = -1.270599695451872
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=52644045]
+transform = Transform3D(0.954, 0, 0, 0, 1, 0, 0, 0, 0.793, 0, 0.5333052, -1.4816741)
+alpha_scissor_threshold = 0.493
+texture_filter = 2
+texture = ExtResource("6_3n4cc")

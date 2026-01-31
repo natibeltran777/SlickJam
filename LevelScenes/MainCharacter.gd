@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	
-		
+	OnRailsCamera.look_at_target
 			
 	if is_on_floor_only():
 		trick_in_progress = false
