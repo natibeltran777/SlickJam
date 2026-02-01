@@ -1,0 +1,41 @@
+Adding file system path "C:\\Users\\Jotto\\Desktop\\Utilities\\TrenchBroom-Win64-AMD64-v2025.4-Release\\defaults\\assets"
+Adding file system path "C:\\Users\\Jotto\\Documents\\GitHub\\SlickJam\\"
+Loading document from C:\Users\Jotto\Documents\GitHub\SlickJam\trenchbroom\maps\testmap.map
+Found 0 shaders
+Adding file system path "C:\\Users\\Jotto\\Desktop\\Utilities\\TrenchBroom-Win64-AMD64-v2025.4-Release\\defaults\\assets"
+Adding file system path "C:\\Users\\Jotto\\Documents\\GitHub\\SlickJam\\"
+Adding file system path "C:\\Users\\Jotto\\Documents\\GitHub\\SlickJam\\trenchbroom"
+Loaded entity definition file SlickGame.fgd
+Found 0 shaders
+Loaded "C:\\Users\\Jotto\\Documents\\GitHub\\SlickJam\\trenchbroom\\maps\\testmap.map" in 125ms
+Created autosave backup at "C:\\Users\\Jotto\\Documents\\GitHub\\SlickJam\\trenchbroom\\maps\\autosave\\testmap.7.map"
+Could not clip brush: Brush is empty
+Could not clip brush: Brush is empty
+Could not clip brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not hollow brush: result_error{msg: Brush is empty}
+Created autosave backup at "C:\\Users\\Jotto\\Documents\\GitHub\\SlickJam\\trenchbroom\\maps\\autosave\\testmap.8.map"
+Could not resize brush: Brush has invalid face
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Could not resize brush: Brush is empty
+Created autosave backup at "C:\\Users\\Jotto\\Documents\\GitHub\\SlickJam\\trenchbroom\\maps\\autosave\\testmap.9.map"

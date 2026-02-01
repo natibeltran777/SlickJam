@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgxl1hmhabxrf"
-path.s3tc="res://.godot/imported/Brick_10-128x128.png-d01a5aa728e53d5b08201cdb4abac5fc.s3tc.ctex"
+uid="uid://yjx23q415glj"
+path.s3tc="res://.godot/imported/T_Building03.png-3b75d2bfaec2aca9c77fcebf2753977d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Brick/Brick_10-128x128.png"
-dest_files=["res://.godot/imported/Brick_10-128x128.png-d01a5aa728e53d5b08201cdb4abac5fc.s3tc.ctex"]
+source_file="res://trenchbroom/textures/environmentTextures/T_Building03.png"
+dest_files=["res://.godot/imported/T_Building03.png-3b75d2bfaec2aca9c77fcebf2753977d.s3tc.ctex"]
 
 [params]
 

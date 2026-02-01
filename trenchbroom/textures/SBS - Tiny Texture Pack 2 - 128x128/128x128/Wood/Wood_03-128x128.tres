@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://haug5xi70806"]
+
+[ext_resource type="Texture2D" uid="uid://dci6sacc1fgbp" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Wood/Wood_03-128x128.png" id="1_gsybr"]
+
+[resource]
+albedo_texture = ExtResource("1_gsybr")
+metallic_specular = 0.0
+texture_filter = 2
