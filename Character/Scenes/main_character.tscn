@@ -29,8 +29,8 @@ ease = 0
 [sub_resource type="BoxMesh" id="BoxMesh_cxpwc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4j1o4"]
-radius = 0.49560547
-height = 2.5322266
+radius = 0.3383789
+height = 0.7693329
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ar5pk"]
 size = Vector3(0.96448517, 1.0966797, 2.571045)
@@ -91,7 +91,7 @@ mesh = SubResource("BoxMesh_cxpwc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3959732, -1.4323463)
 
 [node name="CapsuleCollisionShape3D" type="CollisionShape3D" parent="." unique_id=1500740003]
-transform = Transform3D(0.6427876, 0, 0.76604414, 0.76604444, -3.348486e-08, -0.6427875, 5.9604645e-08, 0.9999996, -2.9802322e-08, -0.046, 0.509, 0.038)
+transform = Transform3D(0.6427876, 0, 0.76604414, 0.76604444, -3.348486e-08, -0.6427875, 5.9604645e-08, 0.9999996, -2.9802322e-08, -0.045999557, 0.33269727, -0.93898827)
 shape = SubResource("CapsuleShape3D_4j1o4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=866772795]
