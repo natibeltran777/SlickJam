@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djk572tggajvt"
-path="res://.godot/imported/T_RoadLight01.png-847611e647ec5188375d3c23a4c9f0f2.ctex"
+uid="uid://dnrrlcogegvni"
+path="res://.godot/imported/T_Road03.png-7c4871530fc206a1b3dcd765c06bb007.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://trenchbroom/textures/T_RoadLight01.png"
-dest_files=["res://.godot/imported/T_RoadLight01.png-847611e647ec5188375d3c23a4c9f0f2.ctex"]
+source_file="res://trenchbroom/textures/environmentTextures/T_Road03.png"
+dest_files=["res://.godot/imported/T_Road03.png-7c4871530fc206a1b3dcd765c06bb007.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://71hjpwp65hn5"
-path="res://.godot/imported/T_Decal_RoadDoubleStripes02.png-1218139a7b9587c417b15ef54189498c.ctex"
+uid="uid://5xhj5dh3ie2c"
+path="res://.godot/imported/T_Road02.png-cac838354bcb212903990c507e05646d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://trenchbroom/textures/T_Decal_RoadDoubleStripes02.png"
-dest_files=["res://.godot/imported/T_Decal_RoadDoubleStripes02.png-1218139a7b9587c417b15ef54189498c.ctex"]
+source_file="res://trenchbroom/textures/environmentTextures/T_Road02.png"
+dest_files=["res://.godot/imported/T_Road02.png-cac838354bcb212903990c507e05646d.ctex"]
 
 [params]
 
