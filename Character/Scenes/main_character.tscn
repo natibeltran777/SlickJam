@@ -28,6 +28,10 @@ ease = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_cxpwc"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4j1o4"]
+radius = 0.49560547
+height = 2.5322266
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ar5pk"]
 size = Vector3(0.96448517, 1.0966797, 2.571045)
 
@@ -49,7 +53,7 @@ DRIFTING_RATE = 1.0
 transform = Transform3D(0.98537225, 0, 0.17041588, 0, 1, 0, -0.17041588, 0, 0.98537225, 0.17496298, 1.304668, -3.0200412)
 
 [node name="DriftCamera" type="Node3D" parent="Node3D" unique_id=2004623327 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.6464136, -0.35846516, 0.6735365, 1.4901154e-08, 0.8827631, 0.46981806, -0.76298654, -0.30369705, 0.5706302, -0.21134937, -0.09285259, 0.23085737)
+transform = Transform3D(0.6464136, -0.35846516, 0.6735365, 1.4901154e-08, 0.882763, 0.46981806, -0.76298654, -0.30369705, 0.5706302, -0.21134937, -0.09285259, 0.23085737)
 script = ExtResource("2_3n4cc")
 look_at_mode = 2
 look_at_target = NodePath("../../Sprite3D")
@@ -86,9 +90,14 @@ mesh = SubResource("BoxMesh_cxpwc")
 [node name="Node3D2" type="Node3D" parent="." unique_id=12305403]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3959732, -1.4323463)
 
+[node name="CapsuleCollisionShape3D" type="CollisionShape3D" parent="." unique_id=1500740003]
+transform = Transform3D(0.6427876, 0, 0.76604414, 0.76604444, -3.348486e-08, -0.6427875, 5.9604645e-08, 0.9999996, -2.9802322e-08, -0.046, 0.509, 0.038)
+shape = SubResource("CapsuleShape3D_4j1o4")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=866772795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045513153, 0.5092773, 0.037963867)
 shape = SubResource("BoxShape3D_ar5pk")
+disabled = true
 
 [node name="InputManager" type="Node3D" parent="." unique_id=86531115]
 script = ExtResource("4_mfpx1")
