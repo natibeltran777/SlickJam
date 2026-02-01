@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cym2lorges3pk"
+path="res://.godot/imported/circuit01.map-0204843c9941cb9d874d4516cce486f4.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/circuit01.map"
+dest_files=["res://.godot/imported/circuit01.map-0204843c9941cb9d874d4516cce486f4.tres"]
+
+[params]
+
