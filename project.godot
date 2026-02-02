@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SlickJam"
-run/main_scene="uid://c1uoe671hwo5v"
+run/main_scene="uid://bwy410mt3afx5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
