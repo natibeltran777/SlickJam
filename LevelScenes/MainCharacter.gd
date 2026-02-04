@@ -16,6 +16,7 @@ extends CharacterBody3D
 @export var JUMP_VELOCITY = 4.5
 @export var MAX_TURNING_MAGNITUDE = 5.0
 @export var DRIFTING_RATE = 0.5
+@export var TURNING_RATE = 0.2
 @export var SLIDE_DURATION = 0.7
 @export var DRIFT_BOOST_MAX_DURATION = 1.4
 
@@ -103,7 +104,7 @@ func _physics_process(delta: float) -> void:
 		drift_boost_active = true
 	else:
 		var horizontal_movement = steer_input * global_basis.x
-		
+		rotation.y = rotation.y + (steer_input*delta*TURNING_RATE)
 		if is_on_floor():
 			current_speed = min(MAX_SPEED, current_speed + ACCELERATION*delta)
 		var velocity_cruising_magnitude = (current_speed * global_basis.z + horizontal_movement * MAX_TURNING_MAGNITUDE)
