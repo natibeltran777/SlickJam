@@ -1,7 +1,9 @@
 extends Node
 class_name InputManager
 
-
+func _is_slide_pressed() -> bool:
+	return Input.is_action_just_pressed("slide_pressed");
+	
 func _is_drift_pressed() -> bool:
 	return Input.is_action_pressed("drift_pressed");
 	

@@ -58,18 +58,6 @@ region = Rect2(64, 0, 64, 64)
 atlas = ExtResource("7_4j1o4")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r5grf"]
-atlas = ExtResource("7_4j1o4")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vj17s"]
-atlas = ExtResource("7_4j1o4")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ukr2f"]
-atlas = ExtResource("7_4j1o4")
-region = Rect2(64, 64, 64, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_sj5i3"]
 animations = [{
 "frames": [{
@@ -110,37 +98,6 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4j1o4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mfpx1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mfpx1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mfpx1")
-}],
-"loop": true,
-"name": &"slide",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r5grf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vj17s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ukr2f")
-}],
-"loop": false,
-"name": &"turn",
-"speed": 5.0
 }]
 
 [node name="MainCharacter" type="CharacterBody3D" unique_id=2066787586 node_paths=PackedStringArray("input_manager", "default_collision", "slide_collision", "character_animation", "DriftCamera", "OnRailsCamera")]
@@ -152,7 +109,7 @@ slide_collision = NodePath("SlideCollider")
 character_animation = NodePath("AnimatedSprite3D")
 DriftCamera = NodePath("Node3D/DriftCamera")
 OnRailsCamera = NodePath("Node3D/OnRailsCamera")
-ACCELERATION = 25.0
+SPEED = 13.055
 DRIFTSPEED = 4.63
 DRIFT_BOOST_SPEED = 15.0
 JUMP_VELOCITY = 7.115
@@ -173,6 +130,8 @@ vertical_rotation_offset = 0.08726646259971647
 horizontal_rotation_offset = -3.1311206780778273
 spring_length = 4.44
 noise = SubResource("Resource_mfpx1")
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="OnRailsCamera" type="Node3D" parent="Node3D" unique_id=905341654 node_paths=PackedStringArray("look_at_target")]
@@ -186,6 +145,8 @@ follow_distance = 4.44
 vertical_rotation_offset = 0.08726646259971647
 horizontal_rotation_offset = -3.1311206780778273
 spring_length = 4.44
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Node3D2" type="Node3D" parent="." unique_id=12305403]
@@ -218,4 +179,4 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 transform = Transform3D(0.95399994, 0, 0, 0, 1, 0, -2.9802322e-08, 0, 0.793, -0.008556068, 0.5333052, -1.481674)
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_sj5i3")
-animation = &"slide"
+animation = &"boost"

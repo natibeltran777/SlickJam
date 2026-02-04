@@ -51,6 +51,10 @@
 [ext_resource type="Material" uid="uid://dctenlnpiurck" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Dirt/Dirt_04-128x128.tres" id="48_fysp1"]
 [ext_resource type="Material" uid="uid://da03t4eercg47" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Plaster/Plaster_13-128x128.tres" id="49_c5mpg"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_fysp1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fysp1"]
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_fysp1"]
 _surfaces = [{
 "aabb": AABB(-3.5, 0, -2, 5.5, 6, 6),
@@ -3406,10 +3410,28 @@ points = PackedVector3Array(50, 5, 265, 50, 4, 265, 46, 5, 265, 46, 4, 265, 50, 
 
 [sub_resource type="Environment" id="Environment_4t34k"]
 background_mode = 1
-background_color = Color(0.40600908, 0.74155545, 1, 1)
+background_color = Color(0.8459884, 0.57829934, 1, 1)
 sky = SubResource("Sky_8skfm")
 
 [node name="TrenchBroomPrototype" type="Node3D" unique_id=79811274]
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1027314679]
+transform = Transform3D(3.0923173, 0, 0.002028385, 0, 1, 0, -0.052719332, 0, 0.0001642857, -72.925575, 1.0417447, 253.85385)
+mesh = SubResource("BoxMesh_fysp1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3" unique_id=666094011]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D" unique_id=1856796170]
+shape = SubResource("BoxShape3D_fysp1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1924160870]
+transform = Transform3D(5.7350106, 0, 0.002151167, 0, 1, 0, -0.096415564, 0, 0.015151479, -73.759315, 1.094743, 236.96979)
+mesh = SubResource("BoxMesh_fysp1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2" unique_id=516201198]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D" unique_id=462616153]
+shape = SubResource("BoxShape3D_fysp1")
 
 [node name="FuncGodotMap" type="Node3D" parent="." unique_id=553905962]
 script = ExtResource("1_x1qcg")
@@ -6835,4 +6857,15 @@ light_color = Color(0.9999985, 0.9976309, 0.75393724, 1)
 shadow_enabled = true
 
 [node name="MainCharacter" parent="." unique_id=2066787586 instance=ExtResource("9_3b0ny")]
-transform = Transform3D(-0.99988705, 0, -0.015026718, 0, 1, 0, 0.015026718, 0, -0.9998871, -75.08004, 0, 260.38416)
+transform = Transform3D(-0.99988705, 0, -0.015026718, 0, 1, 0, 0.015026718, 0, -0.9998871, -75.08004, 0, 277.6285)
+DRIFT_BOOST_SPEED = 18.0
+MAX_TURNING_MAGNITUDE = 9.36
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2038054938]
+transform = Transform3D(-4.2675242, 0, -0.001848329, 0, 1, 0, 0.06413413, 0, -0.122988954, -76.441315, 1.1100007, 245.4902)
+mesh = SubResource("BoxMesh_fysp1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1954731293]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=293767295]
+shape = SubResource("BoxShape3D_fysp1")

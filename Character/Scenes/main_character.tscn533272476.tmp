@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bvnxpuwjyl1k4"]
+
+[ext_resource type="Script" uid="uid://drtemdays46al" path="res://LevelScenes/MainCharacter.gd" id="1_46jjo"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_3n4cc"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_4j1o4"]
+[ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_4j1o4"]
+[ext_resource type="Script" uid="uid://58arpvd5qve0" path="res://Managers/input_manager.gd" id="4_mfpx1"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_xv4or"]
+[ext_resource type="Texture2D" uid="uid://bqi60knl72pun" path="res://Assets/character/character_sprite.png" id="6_3n4cc"]
+
+[sub_resource type="Resource" id="Resource_4j1o4"]
+script = ExtResource("3_4j1o4")
+duration = 0.6
+transition = 2
+ease = 1
+
+[sub_resource type="Resource" id="Resource_mfpx1"]
+script = ExtResource("4_4j1o4")
+amplitude = 0.4
+frequency = 7.081
+randomize_noise_seed = 1
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
+[sub_resource type="Resource" id="Resource_xv4or"]
+script = ExtResource("3_4j1o4")
+duration = 0.6
+ease = 0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4j1o4"]
+radius = 0.12792969
+height = 0.727026
+
+[node name="MainCharacter" type="CharacterBody3D" unique_id=2066787586 node_paths=PackedStringArray("input_manager", "character_model", "DriftCamera", "OnRailsCamera")]
+transform = Transform3D(-0.6427876, 0, -0.76604444, 0, 1, 0, 0.7660444, 0, -0.64278764, 0, 0, 0)
+script = ExtResource("1_46jjo")
+input_manager = NodePath("InputManager")
+character_model = NodePath("")
+DriftCamera = NodePath("Node3D/DriftCamera")
+OnRailsCamera = NodePath("Node3D/OnRailsCamera")
+SPEED = 13.055
+DRIFTSPEED = 7.0
+DRIFT_BOOST_SPEED = 30.0
+JUMP_VELOCITY = 7.115
+MAX_TURNING_MAGNITUDE = 12.025
+DRIFTING_RATE = 1.675
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2143159797]
+transform = Transform3D(0.98537225, 0, 0.17041588, 0, 1, 0, -0.17041588, 0, 0.98537225, 0.17496298, 1.304668, -3.0200412)
+
+[node name="DriftCamera" type="Node3D" parent="Node3D" unique_id=2004623327 node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(0.6464136, -0.35846516, 0.6735365, 1.4901154e-08, 0.882763, 0.46981806, -0.76298654, -0.30369705, 0.5706302, -0.21134937, -0.09285259, 0.23085737)
+script = ExtResource("2_3n4cc")
+look_at_mode = 2
+look_at_target = NodePath("../../Sprite3D")
+tween_resource = SubResource("Resource_4j1o4")
+follow_distance = 4.44
+vertical_rotation_offset = 0.08726646259971647
+horizontal_rotation_offset = -3.1311206780778273
+spring_length = 4.44
+noise = SubResource("Resource_mfpx1")
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="OnRailsCamera" type="Node3D" parent="Node3D" unique_id=905341654 node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(0.72523654, -0.307021, 0.6162547, -1.49011585e-08, 0.89506894, 0.4459275, -0.68849957, -0.323403, 0.6491367, 0, 0, 0)
+script = ExtResource("2_3n4cc")
+priority = 1
+look_at_mode = 2
+look_at_target = NodePath("../../Sprite3D")
+tween_resource = SubResource("Resource_xv4or")
+follow_distance = 4.44
+vertical_rotation_offset = 0.08726646259971647
+horizontal_rotation_offset = -3.1311206780778273
+spring_length = 4.44
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=12305403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3959732, -1.4323463)
+
+[node name="CapsuleCollisionShape3D" type="CollisionShape3D" parent="." unique_id=1500740003]
+transform = Transform3D(0.9999996, 0, 0, 0, 0.9999996, 0, 0, 0, 0.9999996, -0.0092788935, 0.55265784, -1.5191922)
+shape = SubResource("CapsuleShape3D_4j1o4")
+
+[node name="InputManager" type="Node3D" parent="." unique_id=86531115]
+script = ExtResource("4_mfpx1")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1609799754]
+physics_interpolation_mode = 1
+transform = Transform3D(0.72523665, -0.30702102, 0.6162548, -1.4901161e-08, 0.89506906, 0.4459276, -0.6884997, -0.32340303, 0.64913684, 2.201022, 1.304668, 2.0752747)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=238499936]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_xv4or")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=52644045]
+transform = Transform3D(0.954, 0, 0, 0, 1, 0, 0, 0, 0.793, 0, 0.5333052, -1.4816741)
+alpha_scissor_threshold = 0.493
+texture_filter = 2
+texture = ExtResource("6_3n4cc")
