@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dmxorltvju1a6"
+path="res://.godot/imported/assetsCopy.map-87c6daf03f4980e3f7c65dc9b9938aa8.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/assetsCopy.map"
+dest_files=["res://.godot/imported/assetsCopy.map-87c6daf03f4980e3f7c65dc9b9938aa8.tres"]
+
+[params]
+

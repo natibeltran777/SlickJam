@@ -55,6 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://46wee5ywjirh" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Bricks/Bricks_08-128x128.png" id="49_xm37n"]
 [ext_resource type="Texture2D" uid="uid://cahntrn18fqrn" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Roofs/Roofs_23-128x128.png" id="50_rdnmi"]
 [ext_resource type="Material" uid="uid://dh7ajkqtqi25m" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Roofs/Roofs_24-128x128.tres" id="51_xm37n"]
+[ext_resource type="PackedScene" uid="uid://k3uf1u5sdrkq" path="res://Character/Scenes/Collidable.tscn" id="56_rdnmi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fysp1"]
 
@@ -7261,3 +7262,6 @@ mesh = SubResource("BoxMesh_fysp1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=293767295]
 shape = SubResource("BoxShape3D_fysp1")
+
+[node name="Collidable" parent="." unique_id=110287279 instance=ExtResource("56_rdnmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.37173, 1.324927, 256.484)
