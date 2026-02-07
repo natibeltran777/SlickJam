@@ -7249,8 +7249,9 @@ shadow_enabled = true
 
 [node name="MainCharacter" parent="." unique_id=2066787586 instance=ExtResource("9_3b0ny")]
 transform = Transform3D(-0.99988705, 0, -0.015026718, 0, 1, 0, 0.015026718, 0, -0.9998871, -75.08004, 0, 277.6285)
-MAX_TURNING_MAGNITUDE = 6.5
-TURNING_RATE = 2.0
+DRIFTSPEED = 11.0
+MAX_TURNING_MAGNITUDE = 5.0
+WALL_JUMP_MAGNITUDE = 8
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2038054938]
 transform = Transform3D(-4.2675242, 0, -0.001848329, 0, 1, 0, 0.06413413, 0, -0.122988954, -76.441315, 1.1100007, 245.4902)

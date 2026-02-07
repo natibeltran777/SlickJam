@@ -9,6 +9,9 @@ extends CharacterBody3D
 @export var DriftCamera : PhantomCamera3D
 @export var OnRailsCamera : PhantomCamera3D
 
+@export var RightCollider : Area3D
+@export var LeftCollider : Area3D
+
 @export var MAX_SPEED = 11.0
 @export var ACCELERATION = 0.2
 @export var DRIFTSPEED = 1.0
@@ -19,6 +22,9 @@ extends CharacterBody3D
 @export var TURNING_RATE = 0.2
 @export var SLIDE_DURATION = 0.7
 @export var DRIFT_BOOST_MAX_DURATION = 1.4
+@export var DRIFT_SPEED_DECAY_RATE = 2.5
+@export var WALL_JUMP_MAX_DURATION = 0.8
+@export var WALL_JUMP_MAGNITUDE = 20
 
 var accumulated_drift_direction = Vector3(0,0,0)
 
@@ -31,8 +37,20 @@ var rotation_accumulatior = 0
 var drift_boost_active = false
 var active_boost_time = 0
 
+var drift_time_accumulator = 0
+
+
 var slide_in_progress = false
 var slide_time_accumulator = 0
+
+var is_turning_left = false
+var is_turning_right = false
+var is_not_turning = true
+
+var wall_jump_enabled = false
+var apply_wall_normal = false
+var wall_jump_time = 0
+var previous_wall_normal = Vector3()
 
 func _ready() -> void:
 	character_animation.play("idle")
@@ -44,7 +62,7 @@ func _process(delta:float) -> void:
 		if active_boost_time >= DRIFT_BOOST_MAX_DURATION:
 			drift_boost_active = false
 			active_boost_time = 0
-			character_animation.play("idle")
+			#character_animation.play("idle")
 			current_speed = MAX_SPEED
 			
 	if slide_in_progress:
@@ -54,8 +72,14 @@ func _process(delta:float) -> void:
 			default_collision.disabled = false
 			slide_collision.disabled = true
 			slide_time_accumulator = 0
-			character_animation.play("idle")
+			#character_animation.play("idle")
 			character_animation.flip_h = false
+	#if apply_wall_normal:
+		#wall_jump_time += delta
+		#if wall_jump_time > WALL_JUMP_MAX_DURATION:
+			#wall_jump_time = 0
+			#apply_wall_normal = false
+			#previous_wall_normal = Vector3(0,0,0)
 		
 
 func _physics_process(delta: float) -> void:
@@ -67,8 +91,13 @@ func _physics_process(delta: float) -> void:
 		trick_in_progress = false
 		rotation_accumulatior = 0
 	# Handle jump.
-	if input_manager._is_jump_pressed() and is_on_floor():
+	if input_manager._is_jump_pressed() and (is_on_floor() or wall_jump_enabled):
 		velocity.y = JUMP_VELOCITY
+		if wall_jump_enabled:
+			apply_wall_normal = true
+			wall_jump_enabled = false
+			previous_wall_normal = get_wall_normal()
+		character_animation.play("idle")
 		
 
 		
@@ -81,20 +110,38 @@ func _physics_process(delta: float) -> void:
 		slide_collision.disabled = false
 		slide_in_progress = true
 		
-		
+	# TODO: Wall Jump
+	#if not is_on_floor():
+		#
+		#var rightColliderHit = RightCollider.has_overlapping_bodies()
+		#var leftColliderHit = LeftCollider.has_overlapping_bodies()
+		#
+		#if is_on_wall():
+			#if rightColliderHit and not leftColliderHit:
+				#wall_jump_enabled = true
+				#character_animation.play("wall_ride_left")
+			#elif not rightColliderHit and leftColliderHit:
+				#character_animation.play("wall_ride_right")
+				#wall_jump_enabled = true
+			#else:
+				#wall_jump_enabled = false
+			
+	
 	if input_manager._is_drift_pressed() and is_on_floor():
 		OnRailsCamera.set_tween_duration(.3)
 		DriftCamera.set_priority(1)
 		DriftCamera.set_tween_duration(.5)
 		OnRailsCamera.set_priority(0)
 		character_animation.play("drift")
-		
+		drift_time_accumulator += delta
 		default_collision.disabled = true
 		slide_collision.disabled = false
 		var drift_direction = global_basis.z
 		rotation.y = rotation.y + (steer_input*delta*DRIFTING_RATE)
-		velocity = drift_direction * (DRIFTSPEED)	
+		
+		velocity = drift_direction * (DRIFTSPEED - drift_time_accumulator*DRIFT_SPEED_DECAY_RATE)	
 	elif input_manager._is_drift_released() and is_on_floor():
+		drift_time_accumulator = 0
 		default_collision.disabled = false
 		slide_collision.disabled = true
 		OnRailsCamera.set_tween_duration(.5)
@@ -104,6 +151,22 @@ func _physics_process(delta: float) -> void:
 		drift_boost_active = true
 	else:
 		var horizontal_movement = steer_input * global_basis.x
+		if not slide_in_progress:
+			if steer_input > 0 and not is_turning_right:
+				character_animation.play("right_turn")
+				is_turning_left = false
+				is_turning_right = true
+			elif steer_input < 0 and not is_turning_left:
+				character_animation.play("left_turn")
+				is_turning_left = true
+				is_turning_right = false
+			elif steer_input == 0:
+				is_turning_left = false
+				is_turning_right = false
+				if not drift_boost_active:
+					character_animation.play("idle")
+			
+		
 		rotation.y = rotation.y + (steer_input*delta*TURNING_RATE)
 		if is_on_floor():
 			current_speed = min(MAX_SPEED, current_speed + ACCELERATION*delta)
