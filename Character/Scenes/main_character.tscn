@@ -32,8 +32,8 @@ radius = 0.060058594
 height = 0.16851807
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4j1o4"]
-radius = 0.080078125
-height = 0.632173
+radius = 0.40429688
+height = 0.80859375
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xv4or"]
 render_priority = 100
@@ -468,7 +468,7 @@ shape = SubResource("CapsuleShape3D_mfpx1")
 disabled = true
 
 [node name="DefaultCollider" type="CollisionShape3D" parent="." unique_id=1500740003]
-transform = Transform3D(0.9999996, 0, 0, 0, 0.9999996, 0, 0, 0, 0.9999996, -0.009000003, 0.5402076, -1.519)
+transform = Transform3D(0.9999996, 0, 0, 0, 0.9999996, 0, 0, 0, 0.9999996, -0.009000003, 0.4662847, -1.519)
 shape = SubResource("CapsuleShape3D_4j1o4")
 
 [node name="InputManager" type="Node3D" parent="." unique_id=86531115]
