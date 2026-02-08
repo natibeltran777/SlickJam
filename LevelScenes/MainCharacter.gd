@@ -31,6 +31,8 @@ extends CharacterBody3D
 @export var MIN_WINDOW_TIME_DRIFT_FOR_BOOST = 1.1
 @export var MAX_WINDOW_TIME_DRIFT_FOR_BOOST = 1.6
 
+var hudUI : HUD
+
 var coin_counter = 0
 
 var accumulated_drift_direction = Vector3(0,0,0)
@@ -63,6 +65,7 @@ var accumulated_deceleration = 0
 
 func _ready() -> void:
 	character_animation.play("idle")
+	hudUI = get_tree().get_first_node_in_group("hud")
 
 func _process(delta:float) -> void:
 	if drift_boost_active:
@@ -221,11 +224,9 @@ func _on_collectable_detector_area_entered(area: Area3D) -> void:
 	print("collide")
 	if area.is_in_group("coin"):
 		set_coin(coin_counter + 1)
-		print(coin_counter)
+		#print(coin_counter)
 
 func set_coin(new_coin_count: int) -> void:
 	coin_counter = new_coin_count
-	
-
-	
+	hudUI.update_coin_count_number(coin_counter)
 	
