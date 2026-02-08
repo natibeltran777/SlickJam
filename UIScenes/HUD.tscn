@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://s7gnamdlix3j" path="res://UIScenes/hud.gd" id="1_fe3to"]
 [ext_resource type="Script" uid="uid://w5rsve6ni77c" path="res://UIScenes/timer.gd" id="1_oi154"]
 [ext_resource type="LabelSettings" uid="uid://dxclu63uspamf" path="res://UIScenes/HUDlabel_settings.tres" id="4_emitl"]
+[ext_resource type="Texture2D" uid="uid://cldfo1lrujo8y" path="res://Assets/ui/coin_icon.png" id="4_nhl5g"]
 
 [node name="Hud" type="Node2D" unique_id=201477910 node_paths=PackedStringArray("timer_label", "coinCount_label", "coinMax_label")]
 script = ExtResource("1_fe3to")
@@ -27,6 +28,13 @@ text = "00:00:000"
 label_settings = ExtResource("4_emitl")
 
 [node name="coins" type="Node" parent="." unique_id=1161364991]
+
+[node name="TextureRect" type="TextureRect" parent="coins" unique_id=1282100142]
+offset_left = 194.0
+offset_top = 26.0
+offset_right = 234.0
+offset_bottom = 66.0
+texture = ExtResource("4_nhl5g")
 
 [node name="coinCount_label" type="Label" parent="coins" unique_id=1538956533]
 offset_left = 19.0
