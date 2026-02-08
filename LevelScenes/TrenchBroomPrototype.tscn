@@ -9959,7 +9959,7 @@ transform = Transform3D(0.24361503, 0, 0.969872, 0, 1, 0, -0.969872, 0, 0.243615
 transform = Transform3D(-0.42735785, 0, 0.90408254, 0, 1, 0, -0.90408254, 0, -0.42735785, 43.32154, 5.2038856, 157.47859)
 
 [node name="coin9" parent="AllCoins" unique_id=1756559565 instance=ExtResource("56_rdnmi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.22306, 0.1429863, 299.34964)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.22306, 1.2343578, 299.34964)
 
 [node name="coin10" parent="AllCoins" unique_id=1016000660 instance=ExtResource("56_rdnmi")]
 transform = Transform3D(-0.42735785, 0, 0.90408254, 0, 1, 0, -0.90408254, 0, -0.42735785, 108.919525, 0.23514205, 106.63918)
