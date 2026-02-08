@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkmhdfweas6r8"
+path="res://.godot/imported/Landing01_CYCLE_sounds_SLICK___ .mp3-2514c2f6a4cdf79560b72824ec916b54.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Landing01_CYCLE_sounds_SLICK___ .mp3"
+dest_files=["res://.godot/imported/Landing01_CYCLE_sounds_SLICK___ .mp3-2514c2f6a4cdf79560b72824ec916b54.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -75,8 +75,10 @@
 [ext_resource type="Material" uid="uid://5widc6pgnutf" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Roofs/Roofs_23-128x128.tres" id="60_6px8f"]
 [ext_resource type="Material" uid="uid://dt6nym26v8nwn" path="res://trenchbroom/textures/environmentTextures/T_Road10.tres" id="68_gctf1"]
 [ext_resource type="PackedScene" uid="uid://edlpv2xmuq1k" path="res://UIScenes/HUD.tscn" id="74_ko71b"]
-[ext_resource type="PackedScene" path="res://Character/Scenes/grass_collider.tscn" id="76_gctf1"]
+[ext_resource type="PackedScene" uid="uid://dnlh0v2byj3bf" path="res://Character/Scenes/grass_collider.tscn" id="76_gctf1"]
 [ext_resource type="PackedScene" uid="uid://d3lat2fbjryw6" path="res://Character/Scenes/water_collider.tscn" id="77_pom6s"]
+[ext_resource type="AudioStream" uid="uid://cgm6hq784x4xy" path="res://Assets/Sounds/_moody city 001_AMBIENCE_Slick.mp3" id="78_lpp64"]
+[ext_resource type="AudioStream" uid="uid://dfwoutud4om0c" path="res://Assets/Sounds/0__SLICK GAME JAM MUSIC properDraft - FuLL .mp3" id="79_10qmq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fysp1"]
 
@@ -10083,7 +10085,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.75824, 4.859482, 168.22946
 transform = Transform3D(-0.42735785, 0, 0.90408254, 0, 1, 0, -0.90408254, 0, -0.42735785, 128.01044, 0.39139158, 129.20378)
 
 [node name="GrassCollider" parent="." unique_id=1957462967 instance=ExtResource("76_gctf1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.337, 5.759, 159.738)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.337, 5.7, 159.738)
 
 [node name="WaterCollider" parent="." unique_id=997601080 instance=ExtResource("77_pom6s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.24166, 0, 244.38834)
+
+[node name="AmbientSound" type="AudioStreamPlayer" parent="." unique_id=1818991073]
+stream = ExtResource("78_lpp64")
+volume_db = -7.167
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=227902141]
+stream = ExtResource("79_10qmq")
+volume_db = 3.162
+pitch_scale = 2.0
+autoplay = true

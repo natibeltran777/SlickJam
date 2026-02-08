@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0kms0xl2yj75"
+path="res://.godot/imported/_ drone Loop 10min___CYCLE_sounds_SLICK___.mp3-365c8c23c88b7e4d624b9382c8168be6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/_ drone Loop 10min___CYCLE_sounds_SLICK___.mp3"
+dest_files=["res://.godot/imported/_ drone Loop 10min___CYCLE_sounds_SLICK___.mp3-365c8c23c88b7e4d624b9382c8168be6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

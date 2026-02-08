@@ -13,8 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://bv4e5s1is3hpn" path="res://Assets/Sounds/vroom01__CYCLE_sounds_SLICK___ - 2026-02-07, 3.10 PM(1).mp3" id="11_r5grf"]
 [ext_resource type="AudioStream" uid="uid://0kms0xl2yj75" path="res://Assets/Sounds/_ drone Loop 10min___CYCLE_sounds_SLICK___.mp3" id="11_sj5i3"]
 [ext_resource type="Script" uid="uid://sj0m8q7t4ai8" path="res://Character/Scenes/sound_manager.gd" id="12_r5grf"]
-[ext_resource type="AudioStream" uid="uid://dkmhdfweas6r8" path="res://Assets/Sounds/Landing01_CYCLE_sounds_SLICK___ .mp3" id="14_vj17s"]
-[ext_resource type="AudioStream" uid="uid://hjgi5difwv25" path="res://Assets/Sounds/slide01__CYCLE_sounds_SLICK___ - 2026-02-07, 3.11 PM.mp3" id="15_ukr2f"]
 
 [sub_resource type="Resource" id="Resource_4j1o4"]
 script = ExtResource("3_4j1o4")
@@ -627,7 +625,7 @@ shape = SubResource("BoxShape3D_hhmaj")
 
 [node name="BoostSound" type="AudioStreamPlayer3D" parent="." unique_id=106778661]
 stream = ExtResource("11_r5grf")
-volume_db = -8.0
+volume_db = -3.784
 unit_size = 2.91
 pitch_scale = 1.07
 attenuation_filter_cutoff_hz = 13149.0
@@ -635,33 +633,12 @@ attenuation_filter_cutoff_hz = 13149.0
 [node name="BikeDroneSound" type="AudioStreamPlayer3D" parent="." unique_id=1285529131]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 2.9802322e-08, 0, 1, 0, 0, 0)
 stream = ExtResource("11_sj5i3")
-volume_db = -20.0
+volume_db = -18.378
 autoplay = true
 
-[node name="SoundManager" type="Node3D" parent="." unique_id=1497997199 node_paths=PackedStringArray("bike_drone_sound", "boost_sound", "jump_sound", "land_sound", "drift_sound")]
+[node name="SoundManager" type="Node3D" parent="." unique_id=1497997199 node_paths=PackedStringArray("bike_drone_sound", "boost_sound")]
 script = ExtResource("12_r5grf")
 bike_drone_sound = NodePath("../BikeDroneSound")
 boost_sound = NodePath("../BoostSound")
-jump_sound = NodePath("../JumpSound")
-land_sound = NodePath("../LandingSound")
-drift_sound = NodePath("../DriftSound")
-
-[node name="LandingSound" type="AudioStreamPlayer3D" parent="." unique_id=359527332]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 2.9802322e-08, 0, 1, 0, 0, 0)
-stream = ExtResource("14_vj17s")
-unit_size = 1.4
-pitch_scale = 1.42
-
-[node name="JumpSound" type="AudioStreamPlayer3D" parent="." unique_id=226343856]
-stream = ExtResource("11_r5grf")
-volume_db = -5.0
-unit_size = 15.8
-max_db = -3.993
-pitch_scale = 2.97
-
-[node name="DriftSound" type="AudioStreamPlayer3D" parent="." unique_id=1513708523]
-stream = ExtResource("15_ukr2f")
-volume_db = -15.0
-pitch_scale = 1.5
 
 [connection signal="area_entered" from="CollectableDetector" to="." method="_on_collectable_detector_area_entered"]

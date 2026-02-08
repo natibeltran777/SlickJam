@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bv4e5s1is3hpn"
+path="res://.godot/imported/vroom01__CYCLE_sounds_SLICK___ - 2026-02-07, 3.10 PM(1).mp3-1451b0faf440ab1b46cf97b54f7e26fd.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/vroom01__CYCLE_sounds_SLICK___ - 2026-02-07, 3.10 PM(1).mp3"
+dest_files=["res://.godot/imported/vroom01__CYCLE_sounds_SLICK___ - 2026-02-07, 3.10 PM(1).mp3-1451b0faf440ab1b46cf97b54f7e26fd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

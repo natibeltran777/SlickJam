@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hjgi5difwv25"
+path="res://.godot/imported/slide01__CYCLE_sounds_SLICK___ - 2026-02-07, 3.11 PM.mp3-06004b897f0f92723234f41e2d92e0e5.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/slide01__CYCLE_sounds_SLICK___ - 2026-02-07, 3.11 PM.mp3"
+dest_files=["res://.godot/imported/slide01__CYCLE_sounds_SLICK___ - 2026-02-07, 3.11 PM.mp3-06004b897f0f92723234f41e2d92e0e5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

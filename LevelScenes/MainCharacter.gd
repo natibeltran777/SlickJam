@@ -7,6 +7,8 @@ extends CharacterBody3D
 @export var slide_collision : CollisionShape3D
 @export var character_animation : AnimatedSprite3D
 @export var ground_detection : Area3D
+@export var sound_manager : SoundManager
+
 
 @export var DriftCamera : PhantomCamera3D
 @export var OnRailsCamera : PhantomCamera3D
@@ -68,6 +70,8 @@ var accumulated_deceleration = 0
 
 var current_terrain_deceleration = 0
 
+var previous_frame_in_air = false
+
 func _ready() -> void:
 	character_animation.play("idle")
 	hudUI = get_tree().get_first_node_in_group("hud")
@@ -105,10 +109,11 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	if is_on_floor_only():
-		trick_in_progress = false
-		rotation_accumulatior = 0
+		previous_frame_in_air = true
+		
+	if is_on_floor() and previous_frame_in_air:
+		sound_manager._play_landing()
+		previous_frame_in_air = false
 		#character_animation.play("idle")
 	# Handle jump.
 	if input_manager._is_jump_pressed() and is_on_floor():
@@ -117,9 +122,10 @@ func _physics_process(delta: float) -> void:
 		
 	if input_manager._is_jump_released():
 		character_animation.play("Jump")
+		sound_manager._play_jump()
 		
 
-		
+	
 	var steer_input = -input_manager._get_axis()
 		
 	if input_manager._is_slide_pressed():
@@ -165,6 +171,8 @@ func _physics_process(delta: float) -> void:
 		if drift_time_accumulator > 0:
 			presentation_manager._set_wheels_to_red()
 			presentation_manager._enable_wheel_sparks()
+		else:
+			sound_manager._play_drift()
 		
 		character_animation.play("drift") 
 		OnRailsCamera.set_tween_duration(.3)
@@ -199,6 +207,7 @@ func _physics_process(delta: float) -> void:
 			presentation_manager._set_wheels_to_blue()
 			character_animation.play("boost")
 			drift_boost_active = true
+			sound_manager._play_boost_sound()
 		
 		drift_time_accumulator = 0
 		
@@ -230,7 +239,7 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity_cruising_magnitude
 	
 
-	
+	sound_manager._update_bike_sound(velocity.length() + steer_input, MAX_SPEED);
 	
 	move_and_slide()
 	
