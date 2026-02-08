@@ -46,11 +46,27 @@ shader_parameter/pixel_size = 4.0
 material = SubResource("ShaderMaterial_xv4or")
 size = Vector2(1, 2)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b763"]
+atlas = ExtResource("8_mfpx1")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xrqk"]
+atlas = ExtResource("8_mfpx1")
+region = Rect2(192, 192, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mfpx1"]
 atlas = ExtResource("8_mfpx1")
 region = Rect2(0, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sj5i3"]
+atlas = ExtResource("8_mfpx1")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83kho"]
+atlas = ExtResource("8_mfpx1")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8wdc"]
 atlas = ExtResource("8_mfpx1")
 region = Rect2(128, 192, 64, 64)
 
@@ -118,9 +134,9 @@ region = Rect2(192, 64, 64, 64)
 atlas = ExtResource("8_mfpx1")
 region = Rect2(128, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_83kho"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_45xox"]
 atlas = ExtResource("8_mfpx1")
-region = Rect2(64, 192, 64, 64)
+region = Rect2(128, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gnt4h"]
 atlas = ExtResource("8_mfpx1")
@@ -134,19 +150,76 @@ region = Rect2(64, 128, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mfpx1")
-}],
-"loop": true,
-"name": &"boost",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_6b763")
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xrqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfpx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj5i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83kho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83kho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj5i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj5i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83kho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83kho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj5i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj5i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83kho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83kho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj5i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj5i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83kho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83kho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj5i3")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sj5i3")
 }],
-"loop": true,
+"loop": false,
+"name": &"boost",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8wdc")
+}],
+"loop": false,
 "name": &"drift",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -309,7 +382,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_83kho")
+"texture": SubResource("AtlasTexture_45xox")
 }],
 "loop": true,
 "name": &"slide",
@@ -423,7 +496,7 @@ transform = Transform3D(0.95399994, 0, 0, 0, 1, 0, -2.9802322e-08, 0, 0.793, -0.
 texture_filter = 2
 render_priority = 101
 sprite_frames = SubResource("SpriteFrames_sj5i3")
-animation = &"slide"
+animation = &"drift"
 
 [node name="RightWallCollider" type="Area3D" parent="." unique_id=1613614101]
 transform = Transform3D(0.9999996, 0, 0, 0, 0.9999996, 0, 0, 0, 0.9999996, -0.16711187, 0.62767094, -1.4881806)
