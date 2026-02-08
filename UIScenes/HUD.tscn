@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://s7gnamdlix3j" path="res://UIScenes/hud.gd" id="1_fe3to"]
 [ext_resource type="Script" uid="uid://w5rsve6ni77c" path="res://UIScenes/timer.gd" id="1_oi154"]
+[ext_resource type="LabelSettings" uid="uid://dxclu63uspamf" path="res://UIScenes/HUDlabel_settings.tres" id="4_emitl"]
 
 [node name="Hud" type="Node2D" unique_id=201477910 node_paths=PackedStringArray("timer_label", "coinCount_label", "coinMax_label")]
 script = ExtResource("1_fe3to")
@@ -13,28 +14,34 @@ coinMax_label = NodePath("coins/coinMax_label")
 script = ExtResource("1_oi154")
 
 [node name="timer_label" type="Label" parent="timer" unique_id=810088273]
-offset_left = 1009.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -279.0
 offset_top = 27.0
-offset_right = 1112.0
-offset_bottom = 50.0
+offset_right = -10.0
+offset_bottom = 67.0
+grow_horizontal = 0
 size_flags_horizontal = 3
-text = "00:00:00"
-horizontal_alignment = 1
+text = "00:00:000"
+label_settings = ExtResource("4_emitl")
 
 [node name="coins" type="Node" parent="." unique_id=1161364991]
 
 [node name="coinCount_label" type="Label" parent="coins" unique_id=1538956533]
-offset_left = 48.0
-offset_top = 23.0
-offset_right = 90.0
-offset_bottom = 46.0
+offset_left = 19.0
+offset_top = 27.0
+offset_right = 98.0
+offset_bottom = 67.0
 text = "0"
+label_settings = ExtResource("4_emitl")
 horizontal_alignment = 2
 
 [node name="coinMax_label" type="Label" parent="coins" unique_id=1657725036]
-offset_left = 89.0
-offset_top = 23.0
-offset_right = 131.0
-offset_bottom = 46.0
+offset_left = 104.0
+offset_top = 27.0
+offset_right = 188.0
+offset_bottom = 67.0
 text = "/ 50"
+label_settings = ExtResource("4_emitl")
 horizontal_alignment = 1
