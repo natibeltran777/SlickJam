@@ -31,6 +31,8 @@ extends CharacterBody3D
 @export var MIN_WINDOW_TIME_DRIFT_FOR_BOOST = 1.1
 @export var MAX_WINDOW_TIME_DRIFT_FOR_BOOST = 1.6
 
+var coin_counter = 0
+
 var accumulated_drift_direction = Vector3(0,0,0)
 
 var trick_in_progress = false
@@ -214,3 +216,16 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
+	
+func _on_collectable_detector_area_entered(area: Area3D) -> void:
+	print("collide")
+	if area.is_in_group("coin"):
+		set_coin(coin_counter + 1)
+		print(coin_counter)
+
+func set_coin(new_coin_count: int) -> void:
+	coin_counter = new_coin_count
+	
+
+	
+	

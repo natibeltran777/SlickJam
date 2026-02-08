@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_4j1o4"]
 [ext_resource type="Script" uid="uid://58arpvd5qve0" path="res://Managers/input_manager.gd" id="4_mfpx1"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_xv4or"]
-[ext_resource type="Shader" uid="uid://chfmdcxxbuwr6" path="res://Character/Scenes/post_process.gdshader" id="7_mfpx1"]
+[ext_resource type="Shader" path="res://Character/Scenes/post_process.gdshader" id="7_mfpx1"]
 [ext_resource type="Texture2D" uid="uid://d4lpjahohsidp" path="res://Assets/character/character_spritesheet.png" id="8_mfpx1"]
 [ext_resource type="Material" uid="uid://cw210nh6kucjy" path="res://Materials/DriftSparks.tres" id="9_hhmaj"]
 [ext_resource type="Script" uid="uid://roa8rnfu6x4r" path="res://Character/Scenes/presentation_manager.gd" id="9_xv4or"]
@@ -449,6 +449,9 @@ size = Vector2(0.02, 0.02)
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99818844, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_hhmaj"]
+radius = 0.98364246
+
 [node name="MainCharacter" type="CharacterBody3D" unique_id=2066787586 node_paths=PackedStringArray("input_manager", "presentation_manager", "default_collision", "slide_collision", "character_animation", "DriftCamera", "OnRailsCamera", "RightCollider", "LeftCollider")]
 transform = Transform3D(-0.6427876, 0, -0.76604444, 0, 1, 0, 0.7660444, 0, -0.64278764, 0, 0, 0)
 script = ExtResource("1_46jjo")
@@ -596,3 +599,11 @@ color = Color(0.7710685, 0, 0.3014289, 1)
 script = ExtResource("9_xv4or")
 wheel_spark = NodePath("../WheelSpark0")
 boost_sparks = NodePath("../BoostSparks")
+
+[node name="CollectableDetector" type="Area3D" parent="." unique_id=1803979078]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollectableDetector" unique_id=589936211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023447275, 0.45323908, -1.5056033)
+shape = SubResource("SphereShape3D_hhmaj")
+
+[connection signal="area_entered" from="CollectableDetector" to="." method="_on_collectable_detector_area_entered"]

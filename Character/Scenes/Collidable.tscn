@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://k3uf1u5sdrkq"]
-
-[ext_resource type="PackedScene" uid="uid://rv8df4w1m08q" path="res://Assets/fancy_coin.tscn" id="1_ht25l"]
-
-[node name="Collidable" type="Node3D" unique_id=110287279]
-
-[node name="FancyCoin" parent="." unique_id=1727445718 instance=ExtResource("1_ht25l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028164864, -0.2716627, -0.3158443)
