@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var default_collision : CollisionShape3D
 @export var slide_collision : CollisionShape3D
 @export var character_animation : AnimatedSprite3D
+@export var ground_detection : Area3D
 
 @export var DriftCamera : PhantomCamera3D
 @export var OnRailsCamera : PhantomCamera3D
@@ -30,6 +31,8 @@ extends CharacterBody3D
 
 @export var MIN_WINDOW_TIME_DRIFT_FOR_BOOST = 1.1
 @export var MAX_WINDOW_TIME_DRIFT_FOR_BOOST = 1.6
+@export var TERRAIN_MAX_SPEED = 6.0
+@export var TERRAIN_DECELERATION = 1.2
 
 var hudUI : HUD
 
@@ -62,6 +65,8 @@ var wall_jump_time = 0
 var previous_wall_normal = Vector3()
 
 var accumulated_deceleration = 0
+
+var current_terrain_deceleration = 0
 
 func _ready() -> void:
 	character_animation.play("idle")
@@ -130,6 +135,15 @@ func _physics_process(delta: float) -> void:
 	if input_manager._is_deceleration_released():
 		accumulated_deceleration = 0
 		
+		
+	if ground_detection.get_overlapping_bodies().size() > 0:
+		current_terrain_deceleration = TERRAIN_DECELERATION
+		#accumulated_deceleration += terrain_deceleration * delta 
+		#accumulated_deceleration = min(accumulated_deceleration, 3)
+	else:
+		current_terrain_deceleration = 0
+		#accumulated_deceleration = 0
+		
 	# TODO: Wall Jump
 	#if not is_on_floor():
 		#
@@ -167,7 +181,7 @@ func _physics_process(delta: float) -> void:
 			presentation_manager._set_wheels_to_blue()
 		if drift_time_accumulator > MAX_WINDOW_TIME_DRIFT_FOR_BOOST:
 			presentation_manager._set_wheels_to_red()
-		velocity = drift_direction * (DRIFTSPEED - drift_time_accumulator*DRIFT_SPEED_DECAY_RATE)	
+		velocity = drift_direction * (DRIFTSPEED - drift_time_accumulator*DRIFT_SPEED_DECAY_RATE) * (1-current_terrain_deceleration)
 	elif input_manager._is_drift_released() and is_on_floor():
 		
 		presentation_manager._disable_wheel_sparks()
@@ -191,7 +205,7 @@ func _physics_process(delta: float) -> void:
 		
 		
 	else:
-		var horizontal_movement = steer_input * global_basis.x
+		#var horizontal_movement = steer_input * global_basis.x
 		if not slide_in_progress and not input_manager._is_drift_pressed() and is_on_floor():
 			if steer_input > 0 and not is_turning_right:
 				character_animation.play("right_turn")
@@ -210,7 +224,7 @@ func _physics_process(delta: float) -> void:
 		
 		rotation.y = rotation.y + (steer_input*delta*TURNING_RATE)
 		if is_on_floor():
-			current_speed = min(MAX_SPEED, max(current_speed + ACCELERATION*delta - accumulated_deceleration,0))
+			current_speed = min(MAX_SPEED*(1-current_terrain_deceleration), max(current_speed + ACCELERATION*delta*(1-current_terrain_deceleration) - accumulated_deceleration,0))
 		var velocity_cruising_magnitude = (current_speed * global_basis.z)  #+(horizontal_movement * (max(MAX_TURNING_MAGNITUDE - 0,0))))
 		velocity_cruising_magnitude.y = velocity.y
 		velocity = velocity_cruising_magnitude
