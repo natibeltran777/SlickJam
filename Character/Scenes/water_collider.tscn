@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d3lat2fbjryw6"]
+
+[ext_resource type="Material" uid="uid://qil83a2ly6gj" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Elements/Elements_20-128x128.tres" id="1_w3v20"]
+[ext_resource type="Shader" uid="uid://bki8pj0hlt0" path="res://LevelScenes/water_shader_lol.gdshader" id="2_ionhj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w5fhg"]
+size = Vector3(48.851612, 1, 218.65039)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h1dro"]
+render_priority = 0
+shader = ExtResource("2_ionhj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fkpuq"]
+material = SubResource("ShaderMaterial_h1dro")
+size = Vector2(47.68, 221.865)
+subdivide_width = 200
+subdivide_depth = 200
+
+[node name="WaterCollider" type="Area3D" unique_id=997601080]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1743341878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9282455, 0, 15.674805)
+shape = SubResource("BoxShape3D_w5fhg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1156281345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6254349, 0.7198162, 0)
+material_override = ExtResource("1_w3v20")
+mesh = SubResource("PlaneMesh_fkpuq")

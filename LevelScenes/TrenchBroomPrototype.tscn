@@ -76,6 +76,7 @@
 [ext_resource type="Material" uid="uid://dt6nym26v8nwn" path="res://trenchbroom/textures/environmentTextures/T_Road10.tres" id="68_gctf1"]
 [ext_resource type="PackedScene" uid="uid://edlpv2xmuq1k" path="res://UIScenes/HUD.tscn" id="74_ko71b"]
 [ext_resource type="PackedScene" uid="uid://dnlh0v2byj3bf" path="res://Character/Scenes/grass_collider.tscn" id="76_gctf1"]
+[ext_resource type="PackedScene" uid="uid://d3lat2fbjryw6" path="res://Character/Scenes/water_collider.tscn" id="77_pom6s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fysp1"]
 
@@ -9534,3 +9535,6 @@ transform = Transform3D(-0.42735785, 0, 0.90408254, 0, 1, 0, -0.90408254, 0, -0.
 
 [node name="GrassCollider" parent="." unique_id=1957462967 instance=ExtResource("76_gctf1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.337, 5.759, 159.738)
+
+[node name="WaterCollider" parent="." unique_id=997601080 instance=ExtResource("77_pom6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.24166, 0, 244.38834)
