@@ -557,7 +557,7 @@ shape = SubResource("BoxShape3D_mfpx1")
 [node name="WheelSpark0" type="CPUParticles3D" parent="." unique_id=1225346752]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24101144, 0.19775969, -1.4679703)
 emitting = false
-lifetime = 0.09999999999999999
+lifetime = 0.1
 explosiveness = 0.36
 randomness = 0.24
 mesh = SubResource("QuadMesh_xv4or")
