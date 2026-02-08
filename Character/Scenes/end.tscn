@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://vn5wlqmu4b5e"]
+
+[ext_resource type="Script" uid="uid://s7gnamdlix3j" path="res://UIScenes/hud.gd" id="1_7v2nu"]
+[ext_resource type="Script" uid="uid://w5rsve6ni77c" path="res://UIScenes/timer.gd" id="2_mlanw"]
+[ext_resource type="LabelSettings" path="res://UIScenes/HUDlabel_settings.tres" id="3_dgw7y"]
+[ext_resource type="Texture2D" uid="uid://cldfo1lrujo8y" path="res://Assets/ui/coin_icon.png" id="4_q2q2a"]
+
+[node name="End" type="Node2D" unique_id=62543861]
+
+[node name="Hud" type="Node2D" parent="." unique_id=201477910 node_paths=PackedStringArray("timer_label", "coinCount_label", "coinMax_label") groups=["hud"]]
+position = Vector2(4, 0)
+script = ExtResource("1_7v2nu")
+timer_label = NodePath("timer/timer_label")
+coinCount_label = NodePath("coins/coinCount_label")
+coinMax_label = NodePath("coins/coinMax_label")
+
+[node name="timer" type="Node" parent="Hud" unique_id=472202166 groups=["timer"]]
+script = ExtResource("2_mlanw")
+
+[node name="timer_label" type="Label" parent="Hud/timer" unique_id=810088273]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -279.0
+offset_top = 27.0
+offset_right = -10.0
+offset_bottom = 67.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+text = "00:00:000"
+label_settings = ExtResource("3_dgw7y")
+
+[node name="coins" type="Node" parent="Hud" unique_id=1161364991]
+
+[node name="TextureRect" type="TextureRect" parent="Hud/coins" unique_id=1282100142]
+offset_left = 194.0
+offset_top = 26.0
+offset_right = 234.0
+offset_bottom = 66.0
+texture = ExtResource("4_q2q2a")
+
+[node name="coinCount_label" type="Label" parent="Hud/coins" unique_id=1538956533]
+offset_left = 19.0
+offset_top = 27.0
+offset_right = 98.0
+offset_bottom = 67.0
+text = "0"
+label_settings = ExtResource("3_dgw7y")
+horizontal_alignment = 2
+
+[node name="coinMax_label" type="Label" parent="Hud/coins" unique_id=1657725036]
+offset_left = 104.0
+offset_top = 27.0
+offset_right = 188.0
+offset_bottom = 67.0
+text = "/ 50"
+label_settings = ExtResource("3_dgw7y")
+horizontal_alignment = 1

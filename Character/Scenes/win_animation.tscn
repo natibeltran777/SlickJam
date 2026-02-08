@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://4t1fcmlgsjvu"]
+
+[ext_resource type="PackedScene" uid="uid://k3uf1u5sdrkq" path="res://Character/Scenes/coin.tscn" id="1_qds18"]
+
+[node name="WinAnimation" type="Node3D" unique_id=2088439232]
+
+[node name="coin" parent="." unique_id=1553929901 instance=ExtResource("1_qds18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10372901, 0, -0.15427494)
