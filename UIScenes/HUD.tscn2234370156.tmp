@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://edlpv2xmuq1k"]
+
+[ext_resource type="Script" uid="uid://s7gnamdlix3j" path="res://UIScenes/hud.gd" id="1_fe3to"]
+[ext_resource type="Script" uid="uid://w5rsve6ni77c" path="res://UIScenes/timer.gd" id="1_oi154"]
+
+[node name="Hud" type="Node2D" unique_id=201477910]
+script = ExtResource("1_fe3to")
+
+[node name="timer" type="Node" parent="." unique_id=472202166 groups=["timer"]]
+script = ExtResource("1_oi154")
+
+[node name="timer_label" type="Label" parent="timer" unique_id=810088273]
+offset_left = 1009.0
+offset_top = 27.0
+offset_right = 1112.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+text = "00:00:00"
+horizontal_alignment = 1
+
+[node name="coins" type="Node" parent="." unique_id=1161364991]
+
+[node name="coinCount_label" type="Label" parent="coins" unique_id=1538956533]
+offset_left = 48.0
+offset_top = 23.0
+offset_right = 90.0
+offset_bottom = 46.0
+text = "0"
+horizontal_alignment = 2
+
+[node name="coinMax_label" type="Label" parent="coins" unique_id=1657725036]
+offset_left = 89.0
+offset_top = 23.0
+offset_right = 131.0
+offset_bottom = 46.0
+text = "/ 50"
+horizontal_alignment = 1
