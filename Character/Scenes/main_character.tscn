@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://sj0m8q7t4ai8" path="res://Character/Scenes/sound_manager.gd" id="12_r5grf"]
 [ext_resource type="AudioStream" uid="uid://dkmhdfweas6r8" path="res://Assets/Sounds/Landing01_CYCLE_sounds_SLICK___ .mp3" id="14_vj17s"]
 [ext_resource type="AudioStream" uid="uid://hjgi5difwv25" path="res://Assets/Sounds/slide01__CYCLE_sounds_SLICK___ - 2026-02-07, 3.11 PM.mp3" id="15_ukr2f"]
+[ext_resource type="AudioStream" uid="uid://cyvnpu80a1tw0" path="res://Assets/Sounds/8_bit_chime_positive.wav" id="16_itxs2"]
 
 [sub_resource type="Resource" id="Resource_4j1o4"]
 script = ExtResource("3_4j1o4")
@@ -638,13 +639,14 @@ stream = ExtResource("11_sj5i3")
 volume_db = -20.0
 autoplay = true
 
-[node name="SoundManager" type="Node3D" parent="." unique_id=1497997199 node_paths=PackedStringArray("bike_drone_sound", "boost_sound", "jump_sound", "land_sound", "drift_sound")]
+[node name="SoundManager" type="Node3D" parent="." unique_id=1497997199 node_paths=PackedStringArray("bike_drone_sound", "boost_sound", "jump_sound", "land_sound", "drift_sound", "coin_get")]
 script = ExtResource("12_r5grf")
 bike_drone_sound = NodePath("../BikeDroneSound")
 boost_sound = NodePath("../BoostSound")
 jump_sound = NodePath("../JumpSound")
 land_sound = NodePath("../LandingSound")
 drift_sound = NodePath("../DriftSound")
+coin_get = NodePath("../CoinGet")
 
 [node name="LandingSound" type="AudioStreamPlayer3D" parent="." unique_id=359527332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 2.9802322e-08, 0, 1, 0, 0, 0)
@@ -663,5 +665,10 @@ pitch_scale = 2.97
 stream = ExtResource("15_ukr2f")
 volume_db = -15.0
 pitch_scale = 1.5
+
+[node name="CoinGet" type="AudioStreamPlayer3D" parent="." unique_id=1225889110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.9802322e-08, 0, 1, 0, 0, 0)
+stream = ExtResource("16_itxs2")
+pitch_scale = 1.2
 
 [connection signal="area_entered" from="CollectableDetector" to="." method="_on_collectable_detector_area_entered"]

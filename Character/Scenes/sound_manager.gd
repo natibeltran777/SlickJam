@@ -6,6 +6,7 @@ class_name SoundManager
 @export var jump_sound : AudioStreamPlayer3D
 @export var land_sound : AudioStreamPlayer3D
 @export var drift_sound : AudioStreamPlayer3D
+@export var coin_get : AudioStreamPlayer3D
 
 var max_pitch = 2
 # Called when the node enters the scene tree for the first time.
@@ -24,3 +25,6 @@ func _play_landing() -> void:
 
 func _play_drift() -> void:
 	drift_sound.play()
+
+func _play_coin_get() -> void:
+	coin_get.play()

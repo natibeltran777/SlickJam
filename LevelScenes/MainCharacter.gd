@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name MainCharacter
 
 @export var input_manager : InputManager
 @export var presentation_manager : PresentationManager
@@ -246,6 +246,7 @@ func _physics_process(delta: float) -> void:
 func _on_collectable_detector_area_entered(area: Area3D) -> void:
 	#print("collide")
 	if area.is_in_group("coin"):
+		sound_manager._play_coin_get()
 		set_coin(coin_counter + 1)
 		#print(coin_counter)
 
