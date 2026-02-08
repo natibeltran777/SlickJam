@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://t8s1aa866nqs" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Grass/Grass_19-128x128.png" id="1_ku1p4"]
 
 [resource]
+render_priority = 100
 albedo_texture = ExtResource("1_ku1p4")
 metallic_specular = 0.0
 texture_filter = 2

@@ -1,8 +1,9 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bgys4egdjd6x3"]
 
-[ext_resource type="Texture2D" uid="uid://bewse6a33ul1o" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Tile/Tile_20-128x128.png" id="1_w1jbd"]
-
 [resource]
-albedo_texture = ExtResource("1_w1jbd")
+albedo_color = Color(0.7019608, 0.5294118, 0.4862745, 1)
 metallic_specular = 0.0
+emission_enabled = true
+emission = Color(0.9380769, 0.8695952, 2.3102762e-06, 1)
+emission_energy_multiplier = 2.25
 texture_filter = 2

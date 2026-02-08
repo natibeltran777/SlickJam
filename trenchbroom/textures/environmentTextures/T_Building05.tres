@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbcswbh0mrm8q" path="res://trenchbroom/textures/environmentTextures/T_Building05.png" id="1_hesve"]
 
 [resource]
+render_priority = 100
 albedo_texture = ExtResource("1_hesve")
 metallic_specular = 0.0
 texture_filter = 2

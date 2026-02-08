@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_4j1o4"]
 [ext_resource type="Script" uid="uid://58arpvd5qve0" path="res://Managers/input_manager.gd" id="4_mfpx1"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_xv4or"]
-[ext_resource type="Texture2D" uid="uid://du7ve8evdyvsv" path="res://Assets/character/character_spritesheet.png" id="7_4j1o4"]
+[ext_resource type="Shader" uid="uid://chfmdcxxbuwr6" path="res://Character/Scenes/post_process.gdshader" id="7_mfpx1"]
 [ext_resource type="Texture2D" uid="uid://du7ve8evdyvsv" path="res://Assets/character/character_spritesheet.PNG" id="8_mfpx1"]
 
 [sub_resource type="Resource" id="Resource_4j1o4"]
@@ -35,6 +35,17 @@ height = 0.16851807
 radius = 0.080078125
 height = 0.632173
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xv4or"]
+render_priority = 100
+shader = ExtResource("7_mfpx1")
+shader_parameter/depth_range = 18.0000002682216
+shader_parameter/steps_per_color = 5.585
+shader_parameter/pixel_size = 4.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_4j1o4"]
+material = SubResource("ShaderMaterial_xv4or")
+size = Vector2(1, 2)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mfpx1"]
 atlas = ExtResource("8_mfpx1")
 region = Rect2(192, 192, 64, 64)
@@ -44,15 +55,15 @@ atlas = ExtResource("8_mfpx1")
 region = Rect2(192, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xv4or"]
-atlas = ExtResource("7_4j1o4")
+atlas = ExtResource("8_mfpx1")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhmaj"]
-atlas = ExtResource("7_4j1o4")
+atlas = ExtResource("8_mfpx1")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0r4wy"]
-atlas = ExtResource("7_4j1o4")
+atlas = ExtResource("8_mfpx1")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j50ll"]
@@ -222,7 +233,7 @@ DRIFTING_RATE = 1.675
 transform = Transform3D(0.98537225, 0, 0.17041588, 0, 1, 0, -0.17041588, 0, 0.98537225, 0.17496298, 1.304668, -3.0200412)
 
 [node name="DriftCamera" type="Node3D" parent="Node3D" unique_id=2004623327 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.65151936, -0.35640383, 0.6696999, 1.4901154e-08, 0.8827736, 0.4697981, -0.7586314, -0.30608276, 0.5751443, -0.21134937, -0.09285259, 0.23085737)
+transform = Transform3D(0.65151936, -0.3564038, 0.6696999, 1.4901154e-08, 0.8827735, 0.4697981, -0.7586314, -0.30608276, 0.5751443, -0.21134937, -0.09285259, 0.23085737)
 script = ExtResource("2_3n4cc")
 look_at_mode = 2
 look_at_target = NodePath("../../AnimatedSprite3D")
@@ -237,7 +248,7 @@ align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="OnRailsCamera" type="Node3D" parent="Node3D" unique_id=905341654 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.7290036, -0.30508545, 0.61276144, 0, 0.89518267, 0.44569913, -0.6845098, -0.3249163, 0.65259147, 0, 0, 0)
+transform = Transform3D(0.72900367, -0.30508545, 0.61276144, 0, 0.89518267, 0.44569916, -0.6845099, -0.3249163, 0.65259147, 0, 0, 0)
 script = ExtResource("2_3n4cc")
 priority = 1
 look_at_mode = 2
@@ -277,9 +288,16 @@ process_physics_priority = 300
 script = ExtResource("5_xv4or")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D" unique_id=265490711]
+transform = Transform3D(17.304222, 0, 0, 0, 4.459844, 0, 0, 0, 1.0000001, -1.4469379e-07, -8.9107786e-08, -0.121777)
+extra_cull_margin = 16384.0
+ignore_occlusion_culling = true
+mesh = SubResource("QuadMesh_4j1o4")
+
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1574414668]
 transform = Transform3D(0.95399994, 0, 0, 0, 1, 0, -2.9802322e-08, 0, 0.793, -0.008556068, 0.5333052, -1.481674)
 texture_filter = 2
+render_priority = 101
 sprite_frames = SubResource("SpriteFrames_sj5i3")
 animation = &"boost"
 

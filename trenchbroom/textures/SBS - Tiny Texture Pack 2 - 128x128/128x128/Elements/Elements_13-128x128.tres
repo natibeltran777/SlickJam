@@ -5,4 +5,7 @@
 [resource]
 albedo_texture = ExtResource("1_qgx12")
 metallic_specular = 0.0
+emission_enabled = true
+emission = Color(4.813075e-08, 0.37815383, 0.44820362, 1)
+emission_energy_multiplier = 7.25
 texture_filter = 2

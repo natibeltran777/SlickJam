@@ -62,11 +62,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_fysp1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itj63"]
+render_priority = 100
 albedo_texture = ExtResource("49_xm37n")
 metallic_specular = 0.0
 texture_filter = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rift7"]
+render_priority = 100
 albedo_texture = ExtResource("50_rdnmi")
 metallic_specular = 0.0
 texture_filter = 2
@@ -3641,6 +3643,8 @@ points = PackedVector3Array(50, 5, 265, 50, 4, 265, 46, 5, 265, 46, 4, 265, 50, 
 background_mode = 1
 background_color = Color(0.8459884, 0.57829934, 1, 1)
 sky = SubResource("Sky_8skfm")
+glow_enabled = true
+glow_intensity = 4.06
 
 [node name="TrenchBroomPrototype" type="Node3D" unique_id=79811274]
 

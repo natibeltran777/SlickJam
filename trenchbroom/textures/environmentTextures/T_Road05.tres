@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dxskvj0cnuvim" path="res://trenchbroom/textures/environmentTextures/T_Road05.png" id="1_ppyh3"]
 
 [resource]
+render_priority = 100
 albedo_texture = ExtResource("1_ppyh3")
 metallic_specular = 0.0
 texture_filter = 2

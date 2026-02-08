@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dja2lm1cghwjn" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Roofs/Roofs_24-128x128.png" id="1_42ydd"]
 
 [resource]
+render_priority = 100
 albedo_texture = ExtResource("1_42ydd")
 metallic_specular = 0.0
 texture_filter = 2
