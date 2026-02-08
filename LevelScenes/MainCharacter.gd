@@ -43,6 +43,7 @@ var drift_time_accumulator = 0
 var slide_in_progress = false
 var slide_time_accumulator = 0
 
+
 var is_turning_left = false
 var is_turning_right = false
 var is_not_turning = true
