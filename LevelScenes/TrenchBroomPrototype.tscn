@@ -9326,8 +9326,9 @@ shadow_enabled = true
 
 [node name="MainCharacter" parent="." unique_id=2066787586 instance=ExtResource("9_3b0ny")]
 transform = Transform3D(-0.99988705, 0, -0.015026718, 0, 1, 0, 0.015026718, 0, -0.9998871, -75.08004, 0, 277.6285)
-ACCELERATION = 9.0
-DRIFTSPEED = 11.0
+ACCELERATION = 7.0
+DRIFTSPEED = 10.0
+DRIFT_BOOST_SPEED = 19.0
 MAX_TURNING_MAGNITUDE = 5.0
 TURNING_RATE = 1.1
 WALL_JUMP_MAGNITUDE = 8

@@ -19,6 +19,9 @@ func _is_drift_released() -> bool:
 func _is_jump_pressed() -> bool:
 	return Input.is_action_just_pressed("jump_pressed");
 	
+func _is_jump_released() -> bool:
+	return Input.is_action_just_released("jump_pressed");
+	
 func _is_trick_pressed() -> bool:
 	return Input.is_action_just_pressed("trick_pressed");
 	

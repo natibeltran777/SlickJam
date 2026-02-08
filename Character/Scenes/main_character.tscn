@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_xv4or"]
 [ext_resource type="Shader" uid="uid://chfmdcxxbuwr6" path="res://Character/Scenes/post_process.gdshader" id="7_mfpx1"]
 [ext_resource type="Texture2D" uid="uid://d4lpjahohsidp" path="res://Assets/character/character_spritesheet.png" id="8_mfpx1"]
+[ext_resource type="Material" uid="uid://cw210nh6kucjy" path="res://Materials/DriftSparks.tres" id="9_hhmaj"]
+[ext_resource type="Script" uid="uid://roa8rnfu6x4r" path="res://Character/Scenes/presentation_manager.gd" id="9_xv4or"]
 
 [sub_resource type="Resource" id="Resource_4j1o4"]
 script = ExtResource("3_4j1o4")
@@ -46,6 +48,14 @@ shader_parameter/pixel_size = 4.0
 material = SubResource("ShaderMaterial_xv4or")
 size = Vector2(1, 2)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rshbs"]
+atlas = ExtResource("8_mfpx1")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxwod"]
+atlas = ExtResource("8_mfpx1")
+region = Rect2(64, 128, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6b763"]
 atlas = ExtResource("8_mfpx1")
 region = Rect2(128, 192, 64, 64)
@@ -68,7 +78,7 @@ region = Rect2(0, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8wdc"]
 atlas = ExtResource("8_mfpx1")
-region = Rect2(128, 192, 64, 64)
+region = Rect2(192, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xv4or"]
 atlas = ExtResource("8_mfpx1")
@@ -148,6 +158,29 @@ region = Rect2(64, 128, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sj5i3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rshbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rshbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rshbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rshbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rshbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxwod")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6b763")
@@ -408,10 +441,19 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfpx1"]
 size = Vector3(0.08557129, 0.5772705, 0.22268677)
 
-[node name="MainCharacter" type="CharacterBody3D" unique_id=2066787586 node_paths=PackedStringArray("input_manager", "default_collision", "slide_collision", "character_animation", "DriftCamera", "OnRailsCamera", "RightCollider", "LeftCollider")]
+[sub_resource type="QuadMesh" id="QuadMesh_xv4or"]
+material = ExtResource("9_hhmaj")
+size = Vector2(0.02, 0.02)
+
+[sub_resource type="Curve" id="Curve_hhmaj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99818844, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="MainCharacter" type="CharacterBody3D" unique_id=2066787586 node_paths=PackedStringArray("input_manager", "presentation_manager", "default_collision", "slide_collision", "character_animation", "DriftCamera", "OnRailsCamera", "RightCollider", "LeftCollider")]
 transform = Transform3D(-0.6427876, 0, -0.76604444, 0, 1, 0, 0.7660444, 0, -0.64278764, 0, 0, 0)
 script = ExtResource("1_46jjo")
 input_manager = NodePath("InputManager")
+presentation_manager = NodePath("PresManager")
 default_collision = NodePath("DefaultCollider")
 slide_collision = NodePath("SlideCollider")
 character_animation = NodePath("AnimatedSprite3D")
@@ -496,7 +538,7 @@ transform = Transform3D(0.95399994, 0, 0, 0, 1, 0, -2.9802322e-08, 0, 0.793, -0.
 texture_filter = 2
 render_priority = 101
 sprite_frames = SubResource("SpriteFrames_sj5i3")
-animation = &"drift"
+animation = &"Jump"
 
 [node name="RightWallCollider" type="Area3D" parent="." unique_id=1613614101]
 transform = Transform3D(0.9999996, 0, 0, 0, 0.9999996, 0, 0, 0, 0.9999996, -0.16711187, 0.62767094, -1.4881806)
@@ -511,3 +553,45 @@ transform = Transform3D(0.9999996, 0, 0, 0, 0.9999996, 0, 0, 0, 0.9999996, 0.187
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LeftWallCollider" unique_id=1990623527]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 0.99999994, 0, -2.9802322e-08, 0, 1, -2.9936462e-09, 0, -0.1004501)
 shape = SubResource("BoxShape3D_mfpx1")
+
+[node name="WheelSpark0" type="CPUParticles3D" parent="." unique_id=1225346752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24101144, 0.19775969, -1.4679703)
+emitting = false
+lifetime = 0.09999999999999999
+explosiveness = 0.36
+randomness = 0.24
+mesh = SubResource("QuadMesh_xv4or")
+emission_colors = PackedColorArray(0.47389847, 0.99496096, 0.38371548, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+direction = Vector3(0, 0.945, 0)
+spread = 10.02
+gravity = Vector3(0, -300, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 14.13
+scale_amount_min = 173.34
+scale_amount_max = 540.83
+scale_amount_curve = SubResource("Curve_hhmaj")
+color = Color(0.7710685, 0, 0.3014289, 1)
+
+[node name="BoostSparks" type="CPUParticles3D" parent="." unique_id=2035627449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043681055, 0.1610162, -1.4092914)
+emitting = false
+lifetime = 0.35000000000000003
+speed_scale = 8.6
+explosiveness = 0.92
+randomness = 0.24
+mesh = SubResource("QuadMesh_xv4or")
+emission_colors = PackedColorArray(0.47389847, 0.99496096, 0.38371548, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+direction = Vector3(0, 1, -35.255)
+spread = 10.02
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.4
+initial_velocity_max = 5.43
+scale_amount_min = 173.34
+scale_amount_max = 540.83
+scale_amount_curve = SubResource("Curve_hhmaj")
+color = Color(0.7710685, 0, 0.3014289, 1)
+
+[node name="PresManager" type="Node3D" parent="." unique_id=1879474122 node_paths=PackedStringArray("wheel_spark", "boost_sparks")]
+script = ExtResource("9_xv4or")
+wheel_spark = NodePath("../WheelSpark0")
+boost_sparks = NodePath("../BoostSparks")

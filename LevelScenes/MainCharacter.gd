@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 
 @export var input_manager : InputManager
+@export var presentation_manager : PresentationManager
 @export var default_collision : CollisionShape3D
 @export var slide_collision : CollisionShape3D
 @export var character_animation : AnimatedSprite3D
@@ -26,6 +27,9 @@ extends CharacterBody3D
 @export var WALL_JUMP_MAX_DURATION = 0.8
 @export var WALL_JUMP_MAGNITUDE = 20
 @export var DECELERATION_RATE = 20
+
+@export var MIN_WINDOW_TIME_DRIFT_FOR_BOOST = 1.1
+@export var MAX_WINDOW_TIME_DRIFT_FOR_BOOST = 1.6
 
 var accumulated_drift_direction = Vector3(0,0,0)
 
@@ -67,6 +71,8 @@ func _process(delta:float) -> void:
 			active_boost_time = 0
 			#character_animation.play("idle")
 			current_speed = MAX_SPEED
+			presentation_manager._disable_boost_sparks()
+			presentation_manager._set_wheels_to_red()
 			
 	if slide_in_progress:
 		slide_time_accumulator+= delta
@@ -93,14 +99,14 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor_only():
 		trick_in_progress = false
 		rotation_accumulatior = 0
+		#character_animation.play("idle")
 	# Handle jump.
-	if input_manager._is_jump_pressed() and (is_on_floor() or wall_jump_enabled):
+	if input_manager._is_jump_pressed() and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		if wall_jump_enabled:
-			apply_wall_normal = true
-			wall_jump_enabled = false
-			previous_wall_normal = get_wall_normal()
-		character_animation.play("idle")
+		#character_animation.play("Jump")
+		
+	if input_manager._is_jump_released():
+		character_animation.play("Jump")
 		
 
 		
@@ -137,30 +143,51 @@ func _physics_process(delta: float) -> void:
 			
 	
 	if input_manager._is_drift_pressed() and is_on_floor():
+		if drift_time_accumulator > 0:
+			presentation_manager._set_wheels_to_red()
+			presentation_manager._enable_wheel_sparks()
+		
+		character_animation.play("drift") 
 		OnRailsCamera.set_tween_duration(.3)
 		DriftCamera.set_priority(1)
 		DriftCamera.set_tween_duration(.5)
 		OnRailsCamera.set_priority(0)
-		character_animation.play("drift")
 		drift_time_accumulator += delta
 		default_collision.disabled = true
 		slide_collision.disabled = false
 		var drift_direction = global_basis.z
 		rotation.y = rotation.y + (steer_input*delta*DRIFTING_RATE)
 		
+		if drift_time_accumulator > MIN_WINDOW_TIME_DRIFT_FOR_BOOST:
+			presentation_manager._set_wheels_to_blue()
+		if drift_time_accumulator > MAX_WINDOW_TIME_DRIFT_FOR_BOOST:
+			presentation_manager._set_wheels_to_red()
 		velocity = drift_direction * (DRIFTSPEED - drift_time_accumulator*DRIFT_SPEED_DECAY_RATE)	
 	elif input_manager._is_drift_released() and is_on_floor():
-		drift_time_accumulator = 0
+		
+		presentation_manager._disable_wheel_sparks()
+		presentation_manager._set_wheels_to_red()
+		
+		
 		default_collision.disabled = false
 		slide_collision.disabled = true
 		OnRailsCamera.set_tween_duration(.5)
 		DriftCamera.set_priority(0)
 		OnRailsCamera.set_priority(1)
-		character_animation.play("boost")
-		drift_boost_active = true
+		
+		if drift_time_accumulator > MIN_WINDOW_TIME_DRIFT_FOR_BOOST and drift_time_accumulator < MAX_WINDOW_TIME_DRIFT_FOR_BOOST:
+			presentation_manager._enable_boost_sparks()
+			presentation_manager._set_wheels_to_blue()
+			character_animation.play("boost")
+			drift_boost_active = true
+		
+		drift_time_accumulator = 0
+		
+		
+		
 	else:
 		var horizontal_movement = steer_input * global_basis.x
-		if not slide_in_progress:
+		if not slide_in_progress and not input_manager._is_drift_pressed() and is_on_floor():
 			if steer_input > 0 and not is_turning_right:
 				character_animation.play("right_turn")
 				is_turning_left = false
