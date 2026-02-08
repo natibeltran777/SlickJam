@@ -60,6 +60,22 @@ _surfaces = [{
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5lgxb"]
 points = PackedVector3Array(4.125, 1.5302085, -24.4375, 4.125, 1.0947915, -24.4375, 3.907291, 1.9072917, -24.4375, 3.907291, 0.71770877, -24.4375, 3.530209, 2.125, -24.4375, 3.5302088, 0.5, -24.4375, 3.0947912, 2.125, -24.4375, 3.0947912, 0.5, -24.4375, 2.717709, 1.9072913, -24.4375, 2.7177088, 0.71770877, -24.4375, 2.5, 1.094791, -24.4375, 2.5, 1.5302085, -24.4375, 4.125, 1.5302085, -24.5625, 4.125, 1.0947915, -24.5625, 3.907291, 1.9072917, -24.5625, 3.907291, 0.71770877, -24.5625, 3.530209, 2.125, -24.5625, 3.5302088, 0.5, -24.5625, 3.0947912, 2.125, -24.5625, 3.0947912, 0.5, -24.5625, 2.717709, 1.9072913, -24.5625, 2.7177088, 0.71770877, -24.5625, 2.5, 1.094791, -24.5625, 2.5, 1.5302085, -24.5625)
 
+[sub_resource type="Animation" id="Animation_osmvg"]
+resource_name = "coin_turn"
+length = 20.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("entity_0_mesh_instance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_chf8r"]
+_data = {
+&"coin_turn": SubResource("Animation_osmvg")
+}
+
 [node name="coin" type="Area3D" unique_id=1553929901 groups=["coin"]]
 script = ExtResource("1_vsolj")
 
@@ -70,5 +86,9 @@ mesh = SubResource("ArrayMesh_d74nf")
 [node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="." unique_id=1204523093]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -2.450991, -0.20389205, 18.297565)
 shape = SubResource("ConvexPolygonShape3D_5lgxb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=323040893]
+libraries/ = SubResource("AnimationLibrary_chf8r")
+autoplay = &"coin_turn"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
