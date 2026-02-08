@@ -1,6 +1,12 @@
 extends Node
 class_name InputManager
 
+func _is_deceleration_released() -> bool:
+	return Input.is_action_just_released("decelerate_pressed");
+
+func _is_decelerate_pressed() -> bool:
+	return Input.is_action_pressed("decelerate_pressed");
+
 func _is_slide_pressed() -> bool:
 	return Input.is_action_just_pressed("slide_pressed");
 	

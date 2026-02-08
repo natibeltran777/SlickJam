@@ -25,6 +25,7 @@ extends CharacterBody3D
 @export var DRIFT_SPEED_DECAY_RATE = 2.5
 @export var WALL_JUMP_MAX_DURATION = 0.8
 @export var WALL_JUMP_MAGNITUDE = 20
+@export var DECELERATION_RATE = 20
 
 var accumulated_drift_direction = Vector3(0,0,0)
 
@@ -43,7 +44,6 @@ var drift_time_accumulator = 0
 var slide_in_progress = false
 var slide_time_accumulator = 0
 
-
 var is_turning_left = false
 var is_turning_right = false
 var is_not_turning = true
@@ -52,6 +52,8 @@ var wall_jump_enabled = false
 var apply_wall_normal = false
 var wall_jump_time = 0
 var previous_wall_normal = Vector3()
+
+var accumulated_deceleration = 0
 
 func _ready() -> void:
 	character_animation.play("idle")
@@ -110,6 +112,12 @@ func _physics_process(delta: float) -> void:
 		default_collision.disabled = true
 		slide_collision.disabled = false
 		slide_in_progress = true
+		
+	if input_manager._is_decelerate_pressed():
+		accumulated_deceleration += DECELERATION_RATE * delta 
+		
+	if input_manager._is_deceleration_released():
+		accumulated_deceleration = 0
 		
 	# TODO: Wall Jump
 	#if not is_on_floor():
@@ -170,8 +178,8 @@ func _physics_process(delta: float) -> void:
 		
 		rotation.y = rotation.y + (steer_input*delta*TURNING_RATE)
 		if is_on_floor():
-			current_speed = min(MAX_SPEED, current_speed + ACCELERATION*delta)
-		var velocity_cruising_magnitude = (current_speed * global_basis.z + horizontal_movement * MAX_TURNING_MAGNITUDE)
+			current_speed = min(MAX_SPEED, max(current_speed + ACCELERATION*delta - accumulated_deceleration,0))
+		var velocity_cruising_magnitude = (current_speed * global_basis.z)  #+(horizontal_movement * (max(MAX_TURNING_MAGNITUDE - 0,0))))
 		velocity_cruising_magnitude.y = velocity.y
 		velocity = velocity_cruising_magnitude
 	

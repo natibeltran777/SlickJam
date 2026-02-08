@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://58arpvd5qve0" path="res://Managers/input_manager.gd" id="4_mfpx1"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_xv4or"]
 [ext_resource type="Shader" uid="uid://chfmdcxxbuwr6" path="res://Character/Scenes/post_process.gdshader" id="7_mfpx1"]
-[ext_resource type="Texture2D" uid="uid://du7ve8evdyvsv" path="res://Assets/character/character_spritesheet.png" id="8_mfpx1"]
+[ext_resource type="Texture2D" uid="uid://d4lpjahohsidp" path="res://Assets/character/character_spritesheet.png" id="8_mfpx1"]
 
 [sub_resource type="Resource" id="Resource_4j1o4"]
 script = ExtResource("3_4j1o4")
