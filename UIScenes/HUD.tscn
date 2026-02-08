@@ -30,9 +30,17 @@ label_settings = ExtResource("4_emitl")
 [node name="coins" type="Node" parent="." unique_id=1161364991]
 
 [node name="TextureRect" type="TextureRect" parent="coins" unique_id=1282100142]
+visible = false
 offset_left = 194.0
 offset_top = 26.0
 offset_right = 234.0
+offset_bottom = 66.0
+texture = ExtResource("4_nhl5g")
+
+[node name="TextureRectLeft" type="TextureRect" parent="coins" unique_id=922935542]
+offset_left = 107.0
+offset_top = 26.0
+offset_right = 147.0
 offset_bottom = 66.0
 texture = ExtResource("4_nhl5g")
 
@@ -46,6 +54,7 @@ label_settings = ExtResource("4_emitl")
 horizontal_alignment = 2
 
 [node name="coinMax_label" type="Label" parent="coins" unique_id=1657725036]
+visible = false
 offset_left = 104.0
 offset_top = 27.0
 offset_right = 188.0
