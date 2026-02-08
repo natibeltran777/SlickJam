@@ -7,12 +7,10 @@
 
 [node name="End" type="Node2D" unique_id=62543861]
 
-[node name="Hud" type="Node2D" parent="." unique_id=201477910 node_paths=PackedStringArray("timer_label", "coinCount_label", "coinMax_label") groups=["hud"]]
+[node name="Hud" type="Node2D" parent="." unique_id=201477910 node_paths=PackedStringArray("coinCount_label") groups=["hud"]]
 position = Vector2(4, 0)
 script = ExtResource("1_7v2nu")
-timer_label = NodePath("")
 coinCount_label = NodePath("coins/coinCount_label")
-coinMax_label = NodePath("")
 
 [node name="timer" type="Node" parent="Hud" unique_id=472202166 groups=["timer"]]
 script = ExtResource("2_mlanw")
@@ -76,13 +74,13 @@ horizontal_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 235.00003
+offset_left = 283.0
 offset_top = 400.0
-offset_right = -317.0
+offset_right = -269.0
 offset_bottom = -76.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.1028975, 1.1028975)
+scale = Vector2(0.98486525, 0.98486525)
 text = "10 = ok
 20 = Wow
 30 = Racer
