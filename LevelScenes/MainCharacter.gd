@@ -221,7 +221,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _on_collectable_detector_area_entered(area: Area3D) -> void:
-	print("collide")
+	#print("collide")
 	if area.is_in_group("coin"):
 		set_coin(coin_counter + 1)
 		#print(coin_counter)
