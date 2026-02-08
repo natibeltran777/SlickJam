@@ -33,32 +33,32 @@
 [ext_resource type="Material" uid="uid://c2syri71mcvu4" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Metal/Metal_07-128x128.tres" id="23_gm60j"]
 [ext_resource type="Material" uid="uid://brsvnwt4hqnji" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Roofs/Roofs_02-128x128.tres" id="24_w5ys8"]
 [ext_resource type="Material" uid="uid://qil83a2ly6gj" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Elements/Elements_20-128x128.tres" id="25_1627f"]
-[ext_resource type="Material" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Tile/Tile_10-128x128.tres" id="25_enkds"]
-[ext_resource type="Material" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Wood/Wood_05-128x128.tres" id="26_md378"]
+[ext_resource type="Material" uid="uid://ekrphpa2rv40" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Tile/Tile_10-128x128.tres" id="25_enkds"]
+[ext_resource type="Material" uid="uid://cy2572vvaq52a" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Wood/Wood_05-128x128.tres" id="26_md378"]
 [ext_resource type="Material" uid="uid://bgg0qh5tj2kge" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Grass/Grass_07-128x128.tres" id="26_w5ys8"]
 [ext_resource type="Material" uid="uid://dcasbxxcty73b" path="res://trenchbroom/textures/environmentTextures/T_Building03.tres" id="27_1627f"]
 [ext_resource type="Material" uid="uid://dbknn8cyodbvp" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Wood/Wood_22-128x128.tres" id="28_80d0u"]
 [ext_resource type="Material" uid="uid://7p3g74cit2ob" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Grass/Grass_06-128x128.tres" id="28_g1khn"]
-[ext_resource type="Material" path="res://trenchbroom/textures/environmentTextures/T_Road07.tres" id="28_y4htt"]
+[ext_resource type="Material" uid="uid://ud7kdlb4q04" path="res://trenchbroom/textures/environmentTextures/T_Road07.tres" id="28_y4htt"]
 [ext_resource type="Material" uid="uid://b4k2cq6n81hg3" path="res://trenchbroom/textures/environmentTextures/T_Road05.tres" id="29_2aswu"]
 [ext_resource type="Material" uid="uid://bo36n262fr785" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Wood/Wood_17-128x128.tres" id="29_pxeaa"]
-[ext_resource type="Material" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Stone/Stone_17-128x128.tres" id="30_afcnw"]
+[ext_resource type="Material" uid="uid://ddvu0mlhcpgen" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Stone/Stone_17-128x128.tres" id="30_afcnw"]
 [ext_resource type="Material" uid="uid://ciky5rn2dilbl" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Stone/Stone_14-128x128.tres" id="30_x6l37"]
 [ext_resource type="Material" uid="uid://haug5xi70806" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Wood/Wood_03-128x128.tres" id="31_fysp1"]
 [ext_resource type="Material" uid="uid://de1t60lmwghp4" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Metal/Metal_18-128x128.tres" id="32_c5mpg"]
 [ext_resource type="Material" uid="uid://bhvlj47ufilsv" path="res://trenchbroom/textures/environmentTextures/T_Building05.tres" id="33_pxeaa"]
-[ext_resource type="Material" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Roofs/Roofs_06-128x128.tres" id="33_t6wh8"]
+[ext_resource type="Material" uid="uid://baodqcvft15qe" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Roofs/Roofs_06-128x128.tres" id="33_t6wh8"]
 [ext_resource type="Texture2D" uid="uid://d2rk273ma8s62" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Stone/Stone_09-128x128.png" id="35_t6wh8"]
-[ext_resource type="Material" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Wood/Wood_09-128x128.tres" id="38_utyni"]
+[ext_resource type="Material" uid="uid://db22r2xcof5vb" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Wood/Wood_09-128x128.tres" id="38_utyni"]
 [ext_resource type="Material" uid="uid://d3ck83srtyosi" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Bricks/Bricks_17-128x128.tres" id="38_w5ys8"]
 [ext_resource type="Material" uid="uid://1q413a147ifg" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Bricks/Bricks_16-128x128.tres" id="39_1l38s"]
-[ext_resource type="Material" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Wood/Wood_06-128x128.tres" id="39_vbbie"]
-[ext_resource type="Material" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Stone/Stone_12-128x128.tres" id="40_de6ts"]
+[ext_resource type="Material" uid="uid://ks0y2ge02n0r" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Wood/Wood_06-128x128.tres" id="39_vbbie"]
+[ext_resource type="Material" uid="uid://bgju2wms7y8io" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Stone/Stone_12-128x128.tres" id="40_de6ts"]
 [ext_resource type="Material" uid="uid://cpgv13f70bajt" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Brick/Brick_10-128x128.tres" id="40_i7kss"]
 [ext_resource type="Material" uid="uid://sl7wmhsxqwbv" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Elements/Elements_13-128x128.tres" id="41_de6ts"]
-[ext_resource type="Material" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Wood/Wood_10-128x128.tres" id="42_afcnw"]
+[ext_resource type="Material" uid="uid://cl0yg4lkwuywd" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Wood/Wood_10-128x128.tres" id="42_afcnw"]
 [ext_resource type="Material" uid="uid://dxdypgtotsxgt" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Wood/Wood_15-128x128.tres" id="43_t6wh8"]
-[ext_resource type="Material" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Wood/Wood_12-128x128.tres" id="44_md378"]
+[ext_resource type="Material" uid="uid://dk8fqlyeivcm5" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Wood/Wood_12-128x128.tres" id="44_md378"]
 [ext_resource type="Material" uid="uid://c5fgovclw5qax" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Stone/Stone_13-128x128.tres" id="44_x6l37"]
 [ext_resource type="Material" uid="uid://sdvo0768ax03" path="res://trenchbroom/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Dirt/Dirt_12-128x128.tres" id="46_fysp1"]
 [ext_resource type="Material" uid="uid://bcp4cj7wc0yq3" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Bricks/Bricks_24-128x128.tres" id="47_0ydqd"]
@@ -69,10 +69,10 @@
 [ext_resource type="Material" uid="uid://jprw1mjk0o6l" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Grass/Grass_20-128x128.tres" id="52_ko71b"]
 [ext_resource type="Material" uid="uid://cp5w64ua7dw4t" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Roofs/Roofs_03-128x128.tres" id="53_6px8f"]
 [ext_resource type="Material" uid="uid://c2mjas8pj15jc" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Grass/Grass_21-128x128.tres" id="55_y4htt"]
-[ext_resource type="PackedScene" uid="uid://k3uf1u5sdrkq" path="res://Character/Scenes/Collidable.tscn" id="56_rdnmi"]
+[ext_resource type="PackedScene" uid="uid://k3uf1u5sdrkq" path="res://Character/Scenes/coin.tscn" id="56_rdnmi"]
 [ext_resource type="Material" uid="uid://dj3br5kewkl0u" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Bricks/Bricks_08-128x128.tres" id="59_ko71b"]
 [ext_resource type="Material" uid="uid://5widc6pgnutf" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Roofs/Roofs_23-128x128.tres" id="60_6px8f"]
-[ext_resource type="Material" path="res://trenchbroom/textures/environmentTextures/T_Road10.tres" id="68_gctf1"]
+[ext_resource type="Material" uid="uid://dt6nym26v8nwn" path="res://trenchbroom/textures/environmentTextures/T_Road10.tres" id="68_gctf1"]
 [ext_resource type="PackedScene" uid="uid://edlpv2xmuq1k" path="res://UIScenes/HUD.tscn" id="74_ko71b"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fysp1"]
@@ -9344,8 +9344,14 @@ mesh = SubResource("BoxMesh_fysp1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=293767295]
 shape = SubResource("BoxShape3D_fysp1")
 
-[node name="Collidable" parent="." unique_id=110287279 instance=ExtResource("56_rdnmi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.37173, 1.324927, 256.484)
-
 [node name="Hud" parent="." unique_id=201477910 instance=ExtResource("74_ko71b")]
 position = Vector2(4, 0)
+
+[node name="coin" parent="." unique_id=1553929901 instance=ExtResource("56_rdnmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.19707, 0.26639205, 251.20789)
+
+[node name="coin2" parent="." unique_id=691880901 instance=ExtResource("56_rdnmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.60338, 0.266393, 259.92856)
+
+[node name="coin3" parent="." unique_id=1772840941 instance=ExtResource("56_rdnmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.89006, 0.26639205, 263.04532)
