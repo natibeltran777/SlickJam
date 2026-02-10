@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://edlpv2xmuq1k"]
+
+[ext_resource type="Script" uid="uid://s7gnamdlix3j" path="res://UIScenes/hud.gd" id="1_fe3to"]
+[ext_resource type="Script" uid="uid://w5rsve6ni77c" path="res://UIScenes/timer.gd" id="1_oi154"]
+[ext_resource type="LabelSettings" uid="uid://dxclu63uspamf" path="res://UIScenes/HUDlabel_settings.tres" id="4_emitl"]
+[ext_resource type="Texture2D" uid="uid://cldfo1lrujo8y" path="res://Assets/ui/coin_icon.png" id="4_nhl5g"]
+[ext_resource type="PackedScene" uid="uid://vn5wlqmu4b5e" path="res://UIScenes/end.tscn" id="5_nhl5g"]
+
+[node name="Hud" type="Node2D" unique_id=201477910 node_paths=PackedStringArray("timer_label", "coinCount_label", "coinMax_label", "end_layout")]
+script = ExtResource("1_fe3to")
+timer_label = NodePath("timer/timer_label")
+coinCount_label = NodePath("coins/coinCount_label")
+coinMax_label = NodePath("coins/coinMax_label")
+end_layout = NodePath("End")
+
+[node name="timer" type="Node" parent="." unique_id=472202166 groups=["timer"]]
+script = ExtResource("1_oi154")
+
+[node name="timer_label" type="Label" parent="timer" unique_id=810088273]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -249.0
+offset_top = 27.0
+offset_right = -10.0
+offset_bottom = 67.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "00:00:000"
+label_settings = ExtResource("4_emitl")
+
+[node name="coins" type="Node" parent="." unique_id=1161364991]
+
+[node name="TextureRect" type="TextureRect" parent="coins" unique_id=1282100142]
+visible = false
+offset_left = 194.0
+offset_top = 26.0
+offset_right = 234.0
+offset_bottom = 66.0
+texture = ExtResource("4_nhl5g")
+
+[node name="TextureRectLeft" type="TextureRect" parent="coins" unique_id=922935542]
+offset_left = 107.0
+offset_top = 26.0
+offset_right = 147.0
+offset_bottom = 66.0
+texture = ExtResource("4_nhl5g")
+
+[node name="coinCount_label" type="Label" parent="coins" unique_id=1538956533]
+offset_left = 19.0
+offset_top = 27.0
+offset_right = 98.0
+offset_bottom = 67.0
+text = "0"
+label_settings = ExtResource("4_emitl")
+horizontal_alignment = 2
+
+[node name="coinMax_label" type="Label" parent="coins" unique_id=1657725036]
+visible = false
+offset_left = 104.0
+offset_top = 27.0
+offset_right = 188.0
+offset_bottom = 67.0
+text = "/ 50"
+label_settings = ExtResource("4_emitl")
+horizontal_alignment = 1
+
+[node name="Node" type="Node" parent="." unique_id=757534680]
+
+[node name="instructions_label" type="Label" parent="Node" unique_id=1359058011]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = -119.0
+offset_right = 822.0
+offset_bottom = 53.0
+grow_vertical = 0
+scale = Vector2(0.48697194, 0.48697194)
+text = "Collect the most coins
+in 2 minutes
+
+Shift / Trigger -> Drift
+Space / A -> Jump"
+label_settings = ExtResource("4_emitl")
+
+[node name="End" parent="." unique_id=62543861 instance=ExtResource("5_nhl5g")]
+script = null
+
+[connection signal="time_depleted" from="timer" to="." method="_on_timer_time_depleted"]

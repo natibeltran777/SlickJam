@@ -1,23 +1,27 @@
 [gd_scene format=3 uid="uid://vn5wlqmu4b5e"]
 
-[ext_resource type="Script" uid="uid://s7gnamdlix3j" path="res://UIScenes/hud.gd" id="1_7v2nu"]
-[ext_resource type="Script" uid="uid://w5rsve6ni77c" path="res://UIScenes/timer.gd" id="2_mlanw"]
-[ext_resource type="LabelSettings" path="res://UIScenes/HUDlabel_settings.tres" id="3_dgw7y"]
+[ext_resource type="Texture2D" uid="uid://dnrrlcogegvni" path="res://trenchbroom/textures/environmentTextures/T_Road03.png" id="1_81w1v"]
+[ext_resource type="LabelSettings" uid="uid://dxclu63uspamf" path="res://UIScenes/HUDlabel_settings.tres" id="3_dgw7y"]
 [ext_resource type="Texture2D" uid="uid://cldfo1lrujo8y" path="res://Assets/ui/coin_icon.png" id="4_q2q2a"]
 
 [node name="End" type="Node2D" unique_id=62543861]
+visible = false
 
-[node name="Hud" type="Node2D" parent="." unique_id=201477910 node_paths=PackedStringArray("coinCount_label") groups=["hud"]]
-position = Vector2(4, 0)
-script = ExtResource("1_7v2nu")
-coinCount_label = NodePath("coins/coinCount_label")
+[node name="endLayout" type="Node" parent="." unique_id=1161364991]
 
-[node name="timer" type="Node" parent="Hud" unique_id=472202166 groups=["timer"]]
-script = ExtResource("2_mlanw")
+[node name="background" type="TextureRect" parent="endLayout" unique_id=1748633847]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_81w1v")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="coins" type="Node" parent="Hud" unique_id=1161364991]
-
-[node name="TextureRect" type="TextureRect" parent="Hud/coins" unique_id=1282100142]
+[node name="TextureCoin" type="TextureRect" parent="endLayout" unique_id=1282100142]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,8 +32,9 @@ offset_bottom = -373.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_q2q2a")
+metadata/_edit_use_anchors_ = true
 
-[node name="coinCount_label" type="Label" parent="Hud/coins" unique_id=1538956533]
+[node name="coinCount_label" type="Label" parent="endLayout" unique_id=1538956533 groups=["coin"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,8 +47,9 @@ grow_vertical = 2
 text = "0"
 label_settings = ExtResource("3_dgw7y")
 horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="coinCount_label2" type="Label" parent="Hud/coins" unique_id=896798017]
+[node name="collected_label" type="Label" parent="endLayout" unique_id=896798017]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -55,8 +61,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "collected"
 label_settings = ExtResource("3_dgw7y")
+metadata/_edit_use_anchors_ = true
 
-[node name="coinCount_label3" type="Label" parent="Hud/coins" unique_id=1818192842]
+[node name="think_label" type="Label" parent="endLayout" unique_id=1818192842]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -69,8 +76,9 @@ grow_vertical = 2
 text = "Think you can collect more?"
 label_settings = ExtResource("3_dgw7y")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="coinCount_label5" type="Label" parent="Hud/coins" unique_id=1986935398]
+[node name="scores_label" type="Label" parent="endLayout" unique_id=1986935398]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -88,17 +96,19 @@ text = "10 = ok
 50 = Hacker"
 label_settings = ExtResource("3_dgw7y")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="coinCount_label4" type="Label" parent="Hud/coins" unique_id=326825304]
+[node name="gameOver_label" type="Label" parent="endLayout" unique_id=326825304]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 276.0
-offset_top = 159.0
+offset_top = 122.0
 offset_right = -276.0
-offset_bottom = -449.0
+offset_bottom = -486.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Time End"
+text = "Game over"
 label_settings = ExtResource("3_dgw7y")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

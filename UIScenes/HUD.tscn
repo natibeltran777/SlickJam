@@ -2,34 +2,41 @@
 
 [ext_resource type="Script" uid="uid://s7gnamdlix3j" path="res://UIScenes/hud.gd" id="1_fe3to"]
 [ext_resource type="Script" uid="uid://w5rsve6ni77c" path="res://UIScenes/timer.gd" id="1_oi154"]
-[ext_resource type="LabelSettings" path="res://UIScenes/HUDlabel_settings.tres" id="4_emitl"]
+[ext_resource type="LabelSettings" uid="uid://dxclu63uspamf" path="res://UIScenes/HUDlabel_settings.tres" id="4_emitl"]
 [ext_resource type="Texture2D" uid="uid://cldfo1lrujo8y" path="res://Assets/ui/coin_icon.png" id="4_nhl5g"]
+[ext_resource type="Texture2D" uid="uid://dnrrlcogegvni" path="res://trenchbroom/textures/environmentTextures/T_Road03.png" id="5_nhl5g"]
 
-[node name="Hud" type="Node2D" unique_id=201477910 node_paths=PackedStringArray("timer_label", "coinCount_label", "coinMax_label")]
+[node name="Hud" type="Node2D" unique_id=201477910 node_paths=PackedStringArray("timer_label", "coinCount_label", "coinCountEnd_label", "coinMax_label", "endOverlay", "hudOverlay")]
 script = ExtResource("1_fe3to")
-timer_label = NodePath("timer/timer_label")
-coinCount_label = NodePath("coins/coinCount_label")
-coinMax_label = NodePath("coins/coinMax_label")
+timer_label = NodePath("HudOverlay/timer/timer_label")
+coinCount_label = NodePath("HudOverlay/coins/coinCount_label")
+coinCountEnd_label = NodePath("EndOverlay/coinCountEnd_label")
+coinMax_label = NodePath("HudOverlay/coins/coinMax_label")
+endOverlay = NodePath("EndOverlay")
+hudOverlay = NodePath("HudOverlay")
 
-[node name="timer" type="Node" parent="." unique_id=472202166 groups=["timer"]]
+[node name="HudOverlay" type="Node2D" parent="." unique_id=1013448889]
+
+[node name="timer" type="Node" parent="HudOverlay" unique_id=472202166 groups=["timer"]]
 script = ExtResource("1_oi154")
 
-[node name="timer_label" type="Label" parent="timer" unique_id=810088273]
+[node name="timer_label" type="Label" parent="HudOverlay/timer" unique_id=810088273]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -279.0
+offset_left = -249.0
 offset_top = 27.0
 offset_right = -10.0
 offset_bottom = 67.0
 grow_horizontal = 0
 size_flags_horizontal = 3
+size_flags_vertical = 0
 text = "00:00:000"
 label_settings = ExtResource("4_emitl")
 
-[node name="coins" type="Node" parent="." unique_id=1161364991]
+[node name="coins" type="Node" parent="HudOverlay" unique_id=1161364991]
 
-[node name="TextureRect" type="TextureRect" parent="coins" unique_id=1282100142]
+[node name="TextureRect" type="TextureRect" parent="HudOverlay/coins" unique_id=1282100142]
 visible = false
 offset_left = 194.0
 offset_top = 26.0
@@ -37,14 +44,14 @@ offset_right = 234.0
 offset_bottom = 66.0
 texture = ExtResource("4_nhl5g")
 
-[node name="TextureRectLeft" type="TextureRect" parent="coins" unique_id=922935542]
+[node name="TextureRectLeft" type="TextureRect" parent="HudOverlay/coins" unique_id=922935542]
 offset_left = 107.0
 offset_top = 26.0
 offset_right = 147.0
 offset_bottom = 66.0
 texture = ExtResource("4_nhl5g")
 
-[node name="coinCount_label" type="Label" parent="coins" unique_id=1538956533]
+[node name="coinCount_label" type="Label" parent="HudOverlay/coins" unique_id=1538956533]
 offset_left = 19.0
 offset_top = 27.0
 offset_right = 98.0
@@ -53,7 +60,7 @@ text = "0"
 label_settings = ExtResource("4_emitl")
 horizontal_alignment = 2
 
-[node name="coinMax_label" type="Label" parent="coins" unique_id=1657725036]
+[node name="coinMax_label" type="Label" parent="HudOverlay/coins" unique_id=1657725036]
 visible = false
 offset_left = 104.0
 offset_top = 27.0
@@ -63,9 +70,9 @@ text = "/ 50"
 label_settings = ExtResource("4_emitl")
 horizontal_alignment = 1
 
-[node name="Node" type="Node" parent="." unique_id=757534680]
+[node name="Node" type="Node" parent="HudOverlay" unique_id=757534680]
 
-[node name="coinCount_label2" type="Label" parent="Node" unique_id=1359058011]
+[node name="instructions_label" type="Label" parent="HudOverlay/Node" unique_id=1359058011]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -81,3 +88,115 @@ in 2 minutes
 Shift / Trigger -> Drift
 Space / A -> Jump"
 label_settings = ExtResource("4_emitl")
+
+[node name="EndOverlay" type="Node2D" parent="." unique_id=70039562]
+z_index = 5
+
+[node name="EndNode" type="Node" parent="EndOverlay" unique_id=946988137]
+
+[node name="Node" type="Node" parent="EndOverlay/EndNode" unique_id=199545252]
+
+[node name="background" type="TextureRect" parent="EndOverlay" unique_id=1450073691]
+offset_left = -232.0
+offset_top = -363.0
+offset_right = 1368.0
+offset_bottom = 1237.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_nhl5g")
+expand_mode = 2
+
+[node name="think_label" type="Label" parent="EndOverlay" unique_id=336934046]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 276.0
+offset_top = 156.0
+offset_right = 876.0
+offset_bottom = 188.0
+grow_horizontal = 2
+text = "Think you can collect more?"
+label_settings = ExtResource("4_emitl")
+horizontal_alignment = 1
+
+[node name="scores_label" type="Label" parent="EndOverlay" unique_id=1200951470]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 422.0
+offset_top = 434.0
+offset_right = 730.0
+offset_bottom = 606.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.98486525, 0.98486525)
+text = "10 = ok
+20 = Wow
+30 = Racer
+40 = Slickster
+50 = Hacker"
+label_settings = ExtResource("4_emitl")
+horizontal_alignment = 1
+
+[node name="TextureCoin" type="TextureRect" parent="EndOverlay" unique_id=1808817044]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 491.0
+offset_top = 308.0
+offset_right = 523.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_nhl5g")
+
+[node name="coinCountEnd_label" type="Label" parent="EndOverlay" unique_id=2130542586 groups=["coin"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 386.0
+offset_top = 308.0
+offset_right = 479.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = ExtResource("4_emitl")
+horizontal_alignment = 2
+
+[node name="collected_label" type="Label" parent="EndOverlay" unique_id=1086666390]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 537.0
+offset_top = 308.0
+offset_right = 737.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "collected"
+label_settings = ExtResource("4_emitl")
+
+[node name="gameOver_label" type="Label" parent="EndOverlay" unique_id=153494289]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 470.0
+offset_top = 85.0
+offset_right = 682.0
+offset_bottom = 117.0
+grow_horizontal = 2
+text = "Game over"
+label_settings = ExtResource("4_emitl")
+horizontal_alignment = 1
+
+[connection signal="time_depleted" from="HudOverlay/timer" to="." method="_on_timer_time_depleted"]
