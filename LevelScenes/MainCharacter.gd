@@ -248,7 +248,9 @@ func _on_collectable_detector_area_entered(area: Area3D) -> void:
 	if area.is_in_group("coin"):
 		sound_manager._play_coin_get()
 		set_coin(coin_counter + 1)
-		print(coin_counter)
+		# this adds additional seconts to coin collection:
+		Stinky.time = Stinky.time + 2.0
+		#print(coin_counter)
 
 func set_coin(new_coin_count: int) -> void:
 	coin_counter = new_coin_count

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_4j1o4"]
 [ext_resource type="Script" uid="uid://58arpvd5qve0" path="res://Managers/input_manager.gd" id="4_mfpx1"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_xv4or"]
-[ext_resource type="Shader" uid="uid://chfmdcxxbuwr6" path="res://Character/Scenes/post_process.gdshader" id="7_mfpx1"]
+[ext_resource type="Shader" path="res://Character/Scenes/post_process.gdshader" id="7_mfpx1"]
 [ext_resource type="Texture2D" uid="uid://d4lpjahohsidp" path="res://Assets/character/character_spritesheet.png" id="8_mfpx1"]
 [ext_resource type="Material" uid="uid://cw210nh6kucjy" path="res://Materials/DriftSparks.tres" id="9_hhmaj"]
 [ext_resource type="Script" uid="uid://roa8rnfu6x4r" path="res://Character/Scenes/presentation_manager.gd" id="9_xv4or"]
