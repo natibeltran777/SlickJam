@@ -1,7 +1,7 @@
 extends Node
 class_name TimerUI
 
-var time = 120.0
+var time = 20.0
 var stopped = false
 signal time_depleted
 

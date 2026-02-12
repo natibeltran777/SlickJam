@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://s7gnamdlix3j" path="res://UIScenes/hud.gd" id="1_fe3to"]
 [ext_resource type="Script" uid="uid://w5rsve6ni77c" path="res://UIScenes/timer.gd" id="1_oi154"]
-[ext_resource type="LabelSettings" uid="uid://dxclu63uspamf" path="res://UIScenes/HUDlabel_settings.tres" id="4_emitl"]
+[ext_resource type="LabelSettings" path="res://UIScenes/HUDlabel_settings.tres" id="4_emitl"]
 [ext_resource type="Texture2D" uid="uid://cldfo1lrujo8y" path="res://Assets/ui/coin_icon.png" id="4_nhl5g"]
 [ext_resource type="Texture2D" uid="uid://dnrrlcogegvni" path="res://trenchbroom/textures/environmentTextures/T_Road03.png" id="5_nhl5g"]
 
@@ -98,13 +98,14 @@ z_index = 5
 
 [node name="background" type="TextureRect" parent="EndOverlay" unique_id=1450073691]
 offset_left = -232.0
-offset_top = -363.0
-offset_right = 1368.0
-offset_bottom = 1237.0
+offset_top = -1138.0
+offset_right = 5488.0
+offset_bottom = 2583.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("5_nhl5g")
-expand_mode = 2
+expand_mode = 3
+stretch_mode = 1
 
 [node name="think_label" type="Label" parent="EndOverlay" unique_id=336934046]
 anchors_preset = 5
@@ -198,5 +199,3 @@ grow_horizontal = 2
 text = "Game over"
 label_settings = ExtResource("4_emitl")
 horizontal_alignment = 1
-
-[connection signal="time_depleted" from="HudOverlay/timer" to="." method="_on_timer_time_depleted"]
