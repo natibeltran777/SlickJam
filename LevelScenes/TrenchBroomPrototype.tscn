@@ -82,7 +82,7 @@
 [ext_resource type="Material" uid="uid://5widc6pgnutf" path="res://trenchbroom/textures/SBS - Tiny Texture Pack - 128x128/128x128/Roofs/Roofs_23-128x128.tres" id="60_6px8f"]
 [ext_resource type="Material" uid="uid://dt6nym26v8nwn" path="res://trenchbroom/textures/environmentTextures/T_Road10.tres" id="68_gctf1"]
 [ext_resource type="PackedScene" uid="uid://edlpv2xmuq1k" path="res://UIScenes/HUD.tscn" id="74_ko71b"]
-[ext_resource type="PackedScene" path="res://Character/Scenes/grass_collider.tscn" id="76_gctf1"]
+[ext_resource type="PackedScene" uid="uid://dnlh0v2byj3bf" path="res://Character/Scenes/grass_collider.tscn" id="76_gctf1"]
 [ext_resource type="PackedScene" uid="uid://d3lat2fbjryw6" path="res://Character/Scenes/water_collider.tscn" id="77_pom6s"]
 [ext_resource type="AudioStream" uid="uid://cgm6hq784x4xy" path="res://Assets/Sounds/_moody city 001_AMBIENCE_Slick.mp3" id="78_lpp64"]
 [ext_resource type="AudioStream" uid="uid://dfwoutud4om0c" path="res://Assets/Sounds/0__SLICK GAME JAM MUSIC properDraft - FuLL .mp3" id="79_10qmq"]
@@ -10688,3 +10688,4 @@ stream = ExtResource("79_10qmq")
 volume_db = 3.162
 pitch_scale = 2.0
 autoplay = true
+parameters/looping = true

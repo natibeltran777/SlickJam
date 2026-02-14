@@ -1,8 +1,8 @@
 extends Node
 #class_name TimerUI
 
-var time = 120.0
-var stopped = false
+static var time = 120.0
+static var stopped = false
 #signal time_depleted
 
 #func _process(delta):
