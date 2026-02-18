@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="SlickJam"
+config/name="Untitled SlickJam Game 2026"
+config/version="0.1"
 run/main_scene="uid://bwy410mt3afx5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"

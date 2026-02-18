@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_4j1o4"]
 [ext_resource type="Script" uid="uid://58arpvd5qve0" path="res://Managers/input_manager.gd" id="4_mfpx1"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_xv4or"]
-[ext_resource type="Shader" uid="uid://chfmdcxxbuwr6" path="res://Character/Scenes/post_process.gdshader" id="7_mfpx1"]
+[ext_resource type="Shader" path="res://Character/Scenes/post_process.gdshader" id="7_mfpx1"]
 [ext_resource type="Texture2D" uid="uid://d4lpjahohsidp" path="res://Assets/character/character_spritesheet.png" id="8_mfpx1"]
 [ext_resource type="Material" uid="uid://cw210nh6kucjy" path="res://Materials/DriftSparks.tres" id="9_hhmaj"]
 [ext_resource type="Script" uid="uid://roa8rnfu6x4r" path="res://Character/Scenes/presentation_manager.gd" id="9_xv4or"]
@@ -456,7 +456,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99818844, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hhmaj"]
-radius = 0.98364246
+radius = 0.6247428
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hhmaj"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -464,14 +464,6 @@ size = Vector3(0.1, 0.1, 0.1)
 [node name="MainCharacter" type="CharacterBody3D" unique_id=2066787586 node_paths=PackedStringArray("input_manager", "presentation_manager", "default_collision", "slide_collision", "character_animation", "ground_detection", "sound_manager", "DriftCamera", "OnRailsCamera", "RightCollider", "LeftCollider")]
 transform = Transform3D(-0.6427876, 0, -0.76604444, 0, 1, 0, 0.7660444, 0, -0.64278764, 0, 0, 0)
 script = ExtResource("1_46jjo")
-MAX_SPEED = 15.0
-ACCELERATION = 25.0
-DRIFTSPEED = 6.0
-DRIFT_BOOST_SPEED = 20.0
-JUMP_VELOCITY = 7.115
-MAX_TURNING_MAGNITUDE = 12.025
-DRIFTING_RATE = 1.675
-TERRAIN_DECELERATION = 0.37
 input_manager = NodePath("InputManager")
 presentation_manager = NodePath("PresManager")
 default_collision = NodePath("DefaultCollider")
@@ -483,6 +475,14 @@ DriftCamera = NodePath("Node3D/DriftCamera")
 OnRailsCamera = NodePath("Node3D/OnRailsCamera")
 RightCollider = NodePath("RightWallCollider")
 LeftCollider = NodePath("LeftWallCollider")
+MAX_SPEED = 15.0
+ACCELERATION = 25.0
+DRIFTSPEED = 6.0
+DRIFT_BOOST_SPEED = 20.0
+JUMP_VELOCITY = 7.115
+MAX_TURNING_MAGNITUDE = 12.025
+DRIFTING_RATE = 1.675
+TERRAIN_DECELERATION = 0.37
 
 [node name="Node3D" type="Node3D" parent="." unique_id=2143159797]
 transform = Transform3D(0.98537225, 0, 0.17041588, 0, 1, 0, -0.17041588, 0, 0.98537225, 0.17496298, 1.304668, -3.0200412)
